@@ -1,8 +1,10 @@
 # Publishes one markdown note under content/modules/<module>/ per run, then commits + pushes.
 #
 # --- Schedule (pick one) ---
-# TESTING:  every 10 minutes  →  cron: "*/10 * * * *"
+# TESTING:  every 2 minutes   →  cron: "*/2 * * * *"   (GitHub may delay a few minutes)
+# TESTING:  every 10 minutes →  cron: "*/10 * * * *"
 # PRODUCTION: once daily UTC →  cron: "35 6 * * *"   (~06:35 UTC)
+# Note: module rotates by UTC *day*, not by run — frequent runs add new posts for that day’s module.
 #
 # Optional LLM: repo secret GROQ_API_KEY (console.groq.com).
 #
@@ -17,7 +19,7 @@ name: Daily content
 
 on:
   schedule:
-    - cron: "*/10 * * * *" # TESTING: every 10 min — switch to daily before relying on this long-term
+    - cron: "*/2 * * * *" # TESTING: every 2 min — revert to daily after testing
   workflow_dispatch: {}
 
 permissions:
