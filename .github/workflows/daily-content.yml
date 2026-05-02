@@ -1,12 +1,23 @@
-# Daily commit + push: one new markdown note under content/modules/<module>/.
-# Optional LLM: add repo secret GROQ_API_KEY (free tier at console.groq.com).
-# Commits use GIT_USER_* secrets so history shows your name (use verified GitHub email).
+# Publishes one markdown note under content/modules/<module>/ per run, then commits + pushes.
+#
+# --- Schedule (pick one) ---
+# TESTING:  every 10 minutes  →  cron: "*/10 * * * *"
+# PRODUCTION: once daily UTC →  cron: "35 6 * * *"   (~06:35 UTC)
+#
+# Optional LLM: repo secret GROQ_API_KEY (console.groq.com).
+#
+# Author on commits (what shows in history / links to your GitHub profile):
+#   Secrets: GIT_USER_NAME, GIT_USER_EMAIL  (recommended — use your verified GitHub email)
+#   Or Variables: GIT_USER_NAME, GIT_USER_EMAIL  (Settings → Secrets and variables → Actions → Variables)
+#   Fallback below only if both are unset.
+#
+# GitHub: Settings → Actions → General → Workflow permissions → Read and write.
 
 name: Daily content
 
 on:
   schedule:
-    - cron: "35 6 * * *" # ~06:35 UTC daily; change hour as you like
+    - cron: "*/10 * * * *" # TESTING: every 10 min — switch to daily before relying on this long-term
   workflow_dispatch: {}
 
 permissions:
@@ -24,14 +35,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configure Git author
+      - name: Configure Git author (your name + email on every commit)
         run: |
           NAME="${{ secrets.GIT_USER_NAME }}"
           EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          [ -z "$NAME" ] && NAME="${{ vars.GIT_USER_NAME }}"
+          [ -z "$EMAIL" ] && EMAIL="${{ vars.GIT_USER_EMAIL }}"
           [ -z "$NAME" ] && NAME="AhmadRazaNewMan"
           [ -z "$EMAIL" ] && EMAIL="webdevolopmentbyar@gmail.com"
           git config user.name "$NAME"
           git config user.email "$EMAIL"
+          echo "Using commit identity: $(git config user.name) <$(git config user.email)>"
 
       - name: Generate post
         env:
@@ -48,5 +62,9 @@ jobs:
             echo "Nothing to commit"
             exit 0
           fi
+          export GIT_AUTHOR_NAME="$(git config user.name)"
+          export GIT_AUTHOR_EMAIL="$(git config user.email)"
+          export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+          export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
           git commit -m "daily: add ${REL_PATH}"
           git push
