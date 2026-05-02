@@ -59,18 +59,7 @@ def _pick_module() -> str:
     return MODULES[seed % len(MODULES)]
 
 
-def _llm_generate(module: str, title_hint: str) -> str | None:
-    if os.environ.get("GROQ_API_KEY"):
-        key = os.environ["GROQ_API_KEY"]
-        base = "https://api.groq.com/openai/v1"
-        model = os.environ.get("LLM_MODEL", "llama-3.3-70b-versatile")
-    elif os.environ.get("OPENAI_API_KEY"):
-        key = os.environ["OPENAI_API_KEY"]
-        base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-        model = os.environ.get("LLM_MODEL", "gpt-4o-mini")
-    else:
-        return None
-    url = base.rstrip("/") + "/chat/completions"
+def _chat_complete(url: str, key: str, model: str, module: str, title_hint: str) -> str | None:
     body = {
         "model": model,
         "messages": [
@@ -112,11 +101,44 @@ def _llm_generate(module: str, title_hint: str) -> str | None:
             detail = e.read().decode(errors="replace")[:1200]
         except Exception:
             pass
-        print(f"LLM skipped: {e}" + (f" | {detail}" if detail else ""), file=sys.stderr)
+        print(f"LLM HTTPError ({model}): {e}" + (f" | {detail}" if detail else ""), file=sys.stderr)
         return None
     except (urllib.error.URLError, KeyError, json.JSONDecodeError) as e:
-        print(f"LLM skipped: {e}", file=sys.stderr)
+        print(f"LLM error ({model}): {e}", file=sys.stderr)
         return None
+
+
+def _llm_generate(module: str, title_hint: str) -> str | None:
+    gkey = (os.environ.get("GROQ_API_KEY") or "").strip()
+    if gkey:
+        base = "https://api.groq.com/openai/v1/chat/completions"
+        preferred = (os.environ.get("LLM_MODEL") or "").strip()
+        fallbacks = [
+            "llama-3.3-70b-versatile",
+            "llama-3.1-8b-instant",
+            "openai/gpt-oss-20b",
+        ]
+        tried: list[str] = []
+        if preferred:
+            tried.append(preferred)
+        for m in fallbacks:
+            if m not in tried:
+                tried.append(m)
+        for model in tried:
+            out = _chat_complete(base, gkey, model, module, title_hint)
+            if out:
+                return out
+            print(f"Groq: retrying next model after {model!r} failed…", file=sys.stderr)
+        return None
+
+    okey = (os.environ.get("OPENAI_API_KEY") or "").strip()
+    if okey:
+        base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+        url = base + "/chat/completions"
+        model = (os.environ.get("LLM_MODEL") or "gpt-4o-mini").strip()
+        return _chat_complete(url, okey, model, module, title_hint)
+
+    return None
 
 
 def _stub_body(module: str, title: str) -> str:
@@ -169,7 +191,8 @@ def main() -> int:
         body = _stub_body(module, title)
         print(
             "NOTE: Wrote placeholder (stub) note — not LLM text. "
-            "Set GitHub Actions secret GROQ_API_KEY (or fix LLM errors above).",
+            "Use Groq Cloud API key in secret GROQ_API_KEY (groq.com / console.groq.com — not xAI Grok). "
+            "See stderr above for HTTP errors.",
             file=sys.stderr,
         )
 

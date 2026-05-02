@@ -1,12 +1,16 @@
 # Publishes one markdown note under content/modules/<module>/ per run, then commits + pushes.
 #
 # --- Schedule (pick one) ---
-# TESTING:  every 2 minutes   →  cron: "*/2 * * * *"   (GitHub may delay a few minutes)
-# TESTING:  every 10 minutes →  cron: "*/10 * * * *"
-# PRODUCTION: once daily UTC →  cron: "35 6 * * *"   (~06:35 UTC)
+# GitHub enforces minimum cron cadence of 5 minutes. See docs:
+# https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onschedule
+# So `*/2 * * * *` will NOT reliably fire every 2 minutes — use */5 minimum or workflow_dispatch for manual tests.
+#
+# TESTING: every 5 minutes      →  cron: "*/5 * * * *"
+# TESTING: every 10 minutes    →  cron: "*/10 * * * *"
+# PRODUCTION: once daily UTC    →  cron: "35 6 * * *"   (~06:35 UTC)
 # Note: module rotates by UTC *day*, not by run — frequent runs add new posts for that day’s module.
 #
-# Optional LLM: repo secret GROQ_API_KEY (console.groq.com).
+# LLM API is Groq (https://console.groq.com) — secret name GROQ_API_KEY. Not xAI "Grok" (different product/key).
 #
 # Author on commits (what shows in history / links to your GitHub profile):
 #   Secrets: GIT_USER_NAME, GIT_USER_EMAIL  (recommended — use your verified GitHub email)
@@ -19,7 +23,7 @@ name: Daily content
 
 on:
   schedule:
-    - cron: "*/2 * * * *" # TESTING: every 2 min — revert to daily after testing
+    - cron: "*/5 * * * *" # TESTING: min GitHub allows; sub‑5‑min cron does not run reliably
   workflow_dispatch: {}
 
 permissions:
@@ -36,6 +40,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Run context (why schedules behave oddly)
+        run: |
+          echo "trigger=${{ github.event_name }}"
+          echo "GitHub scheduled workflows: minimum interval = 5 minutes (official docs)."
+          echo "Use Actions tab → Daily content → Run workflow for an immediate test run."
+
+      - name: Groq secret sanity check (length only, value hidden)
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          k = (os.environ.get("GROQ_API_KEY") or "").strip()
+          print(f"GROQ_API_KEY non-whitespace length: {len(k)}")
+          if len(k) < 30:
+              print("::warning::Key looks missing or too short — repo Settings → Secrets → Actions → GROQ_API_KEY (Groq Cloud, not xAI Grok).")
+          PY
 
       - name: Configure Git author (your name + email on every commit)
         run: |
