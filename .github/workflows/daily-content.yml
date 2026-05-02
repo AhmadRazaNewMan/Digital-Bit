@@ -1,0 +1,52 @@
+# Daily commit + push: one new markdown note under content/modules/<module>/.
+# Optional LLM: add repo secret GROQ_API_KEY (free tier at console.groq.com).
+# Commits use GIT_USER_* secrets so history shows your name (use verified GitHub email).
+
+name: Daily content
+
+on:
+  schedule:
+    - cron: "35 6 * * *" # ~06:35 UTC daily; change hour as you like
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-content
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git author
+        run: |
+          NAME="${{ secrets.GIT_USER_NAME }}"
+          EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          [ -z "$NAME" ] && NAME="AhmadRazaNewMan"
+          [ -z "$EMAIL" ] && EMAIL="webdevolopmentbyar@gmail.com"
+          git config user.name "$NAME"
+          git config user.email "$EMAIL"
+
+      - name: Generate post
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: |
+          python3 scripts/daily_post.py > /tmp/rel_path.txt
+          echo "REL_PATH=$(cat /tmp/rel_path.txt)" >> "$GITHUB_ENV"
+
+      - name: Commit and push
+        run: |
+          git add "$REL_PATH"
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "daily: add ${REL_PATH}"
+          git push
