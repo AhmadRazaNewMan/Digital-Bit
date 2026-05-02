@@ -18,6 +18,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content" / "modules"
 
+
+def _load_dotenv() -> None:
+    """Load ROOT/.env into os.environ (no extra packages). Does not override existing env."""
+    path = ROOT / ".env"
+    if not path.is_file():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[7:].strip()
+        if "=" not in line:
+            continue
+        key, _, val = line.partition("=")
+        key = key.strip()
+        val = val.strip().strip("'").strip('"')
+        if key and key not in os.environ:
+            os.environ[key] = val
+
 MODULES = [
     "frontend-basics",
     "javascript-typescript",
@@ -65,7 +85,7 @@ def _llm_generate(module: str, title_hint: str) -> str | None:
             },
         ],
         "temperature": 0.65,
-        "max_tokens": 2000,
+        "max_tokens": int(os.environ.get("LLM_MAX_TOKENS", "2000")),
     }
     req = urllib.request.Request(
         url,
@@ -116,6 +136,7 @@ Try one small task and timebox 15 minutes.
 
 
 def main() -> int:
+    _load_dotenv()
     CONTENT.mkdir(parents=True, exist_ok=True)
     module = _pick_module()
     (CONTENT / module).mkdir(parents=True, exist_ok=True)
