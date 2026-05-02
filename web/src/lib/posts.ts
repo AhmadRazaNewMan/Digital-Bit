@@ -1,3 +1,5 @@
+import { MODULE_CATALOG, type ModuleMeta } from "./moduleCatalog";
+
 export type Post = {
   moduleId: string;
   postId: string;
@@ -50,16 +52,32 @@ export function getPost(moduleId: string, postId: string): Post | undefined {
   return getAllPosts().find((p) => p.moduleId === moduleId && p.postId === postId);
 }
 
-export function getModules(): { id: string; label: string; count: number }[] {
-  const map = new Map<string, number>();
-  for (const p of getAllPosts()) {
-    map.set(p.moduleId, (map.get(p.moduleId) ?? 0) + 1);
+export type ModuleSummary = ModuleMeta & { count: number };
+
+/** Ordered tracks from catalog (including 0-note tracks), then any stray folders from disk. */
+export function getModules(): ModuleSummary[] {
+  const posts = getAllPosts();
+  const counts = new Map<string, number>();
+  for (const p of posts) {
+    counts.set(p.moduleId, (counts.get(p.moduleId) ?? 0) + 1);
   }
-  return [...map.entries()]
+
+  const known = new Set(MODULE_CATALOG.map((m) => m.id));
+  const ordered: ModuleSummary[] = MODULE_CATALOG.map((m) => ({
+    ...m,
+    count: counts.get(m.id) ?? 0,
+  }));
+
+  const extras = [...counts.entries()]
+    .filter(([id]) => !known.has(id))
+    .sort(([a], [b]) => a.localeCompare(b))
     .map(([id, count]) => ({
       id,
       label: id.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      tagline: "Community notes",
+      hue: (id.length * 61) % 360,
       count,
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+    }));
+
+  return [...ordered, ...extras];
 }

@@ -50,10 +50,13 @@ def _load_dotenv() -> None:
         elif key not in os.environ:
             os.environ[key] = val
 
+# Publication order: each CI run picks the NEXT module in this list (round-robin).
+# Keep in sync with web/src/lib/moduleCatalog.ts MODULE_IDS.
 MODULES = [
+    "dsa-algorithms",
     "frontend-basics",
     "javascript-typescript",
-    "dsa-algorithms",
+    "backend",
     "system-design",
     "devops",
     "dbms",
@@ -97,6 +100,16 @@ TOPIC_SPINS: dict[str, list[str]] = {
         "module resolution ESM vs CJS interop",
         "generics for reusable API wrappers",
     ],
+    "backend": [
+        "REST vs RPC vs GraphQL — when each fits",
+        "idempotent POST / retries / duplicate requests",
+        "JWT sessions vs opaque server-side sessions",
+        "validation at the boundary: DTOs and schemas",
+        "connection pooling and timeout tuning",
+        "background jobs and outbox pattern sketch",
+        "file uploads: streaming vs buffering tradeoffs",
+        "rate limiting per user vs per IP",
+    ],
     "system-design": [
         "idempotency keys for payments and retries",
         "rate limiting: token bucket vs leaky bucket",
@@ -132,11 +145,25 @@ def _slug(s: str) -> str:
     return "-".join(s.lower().replace("/", "-").split())
 
 
+def _count_existing_posts() -> int:
+    if not CONTENT.is_dir():
+        return 0
+    n = 0
+    for child in CONTENT.iterdir():
+        if child.is_dir():
+            n += sum(1 for f in child.glob("*.md") if f.is_file())
+    return n
+
+
 def _pick_module() -> str:
-    # Stable per UTC day: same module for all reruns same day; advances each calendar day.
-    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    seed = int(day.replace("-", ""))
-    return MODULES[seed % len(MODULES)]
+    """Rotate modules every run: CI uses GITHUB_RUN_NUMBER; locally uses post count."""
+    run = (os.environ.get("GITHUB_RUN_NUMBER") or "").strip()
+    if run.isdigit():
+        # Run #1 → first module in MODULES (DSA). Raw % would skip index 0 on first run.
+        idx = (int(run) - 1) % len(MODULES)
+        return MODULES[idx]
+    idx = _count_existing_posts() % len(MODULES)
+    return MODULES[idx]
 
 
 def _chat_complete(url: str, key: str, model: str, module: str, title_hint: str) -> str | None:

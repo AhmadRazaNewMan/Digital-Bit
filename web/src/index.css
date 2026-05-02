@@ -10,6 +10,7 @@
   --glass: rgba(10, 18, 40, 0.55);
   --stroke: rgba(148, 163, 184, 0.18);
   font-family: "Outfit", system-ui, sans-serif;
+  --font-display: "Syne", "Outfit", system-ui, sans-serif;
   background: var(--bg0);
   color: var(--text);
 }
@@ -153,9 +154,10 @@ code,
 }
 
 .hero__title {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  line-height:1.08;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   margin: 0 0 1rem;
 }
@@ -179,6 +181,143 @@ code,
   color: var(--cyan);
 }
 
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  align-items: stretch;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.85rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(6, 12, 28, 0.65);
+  backdrop-filter: blur(10px);
+  min-width: 5.5rem;
+}
+
+.stat--wide {
+  flex: 1;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.stat__val {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--cyan);
+  line-height: 1.2;
+}
+
+.stat__lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.stat__lbl--solo {
+  margin-top: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #cbd5e1;
+}
+
+.learning-path {
+  margin-bottom: 2.25rem;
+  padding: 1.35rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.65), rgba(6, 10, 22, 0.85));
+  backdrop-filter: blur(14px);
+}
+
+.learning-path__title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.learning-path__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.65rem;
+}
+
+.learning-path__step {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(3, 8, 20, 0.45);
+}
+
+.learning-path__idx {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--pink);
+  min-width: 1.25rem;
+}
+
+.learning-path__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.learning-path__name {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.learning-path__tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.module-panel {
+  margin-bottom: 2rem;
+}
+
+.module-panel__head {
+  margin-bottom: 1rem;
+}
+
+.module-panel__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.module-panel__hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 640px;
+  line-height: 1.45;
+}
+
 .module-rail__list {
   list-style: none;
   margin: 0 0 2.5rem;
@@ -189,15 +328,35 @@ code,
 }
 
 .module-chip {
+  --chip-hue: 190;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
+  padding: 0.5rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--stroke);
   background: var(--glass);
   backdrop-filter: blur(10px);
   font-size: 0.85rem;
+}
+
+.module-chip--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.module-chip--link:hover {
+  transform: translateY(-2px);
+  border-color: hsla(var(--chip-hue), 65%, 50%, 0.38);
+  box-shadow: 0 8px 28px hsla(var(--chip-hue), 70%, 40%, 0.12);
+}
+
+.module-chip--active {
+  border-color: rgba(34, 211, 238, 0.55) !important;
+  box-shadow: 0 0 26px rgba(34, 211, 238, 0.14);
+  background: rgba(34, 211, 238, 0.07);
 }
 
 .module-chip__name {
@@ -208,6 +367,18 @@ code,
   font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
   color: var(--cyan);
+}
+
+.post-deck__head {
+  margin-bottom: 1rem;
+}
+
+.post-deck__head .section-title {
+  margin-bottom: 0.35rem;
+}
+
+.post-deck__head .empty {
+  margin-top: 0.5rem;
 }
 
 .empty {

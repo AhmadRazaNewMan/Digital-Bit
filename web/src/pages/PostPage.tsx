@@ -1,10 +1,14 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { DigitalBackground } from "../components/DigitalBackground";
 import { getPost } from "../lib/posts";
 
 export function PostPage() {
+  const [qs] = useSearchParams();
+  const filter = qs.get("m");
+  const listHref = filter && filter !== "all" ? `/?m=${encodeURIComponent(filter)}` : "/";
+
   const { moduleId = "", postId = "" } = useParams();
   const mod = decodeURIComponent(moduleId);
   const pid = decodeURIComponent(postId);
@@ -18,8 +22,8 @@ export function PostPage() {
     <article className="post">
       <DigitalBackground />
       <div className="post__inner">
-        <Link to="/" className="backlink">
-          ← All modules
+        <Link to={listHref} className="backlink">
+          ← Back to feed
         </Link>
         <p className="post__module">{post.moduleId.replace(/-/g, " ")}</p>
         <h1 className="post__title">{post.title}</h1>

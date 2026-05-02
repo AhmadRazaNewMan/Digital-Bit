@@ -9,11 +9,11 @@ export function Layout({ children }: { children: ReactNode }) {
           <span className="brand__glyph" aria-hidden />
           <span className="brand__text">
             <span className="brand__title">Digital Bit</span>
-            <span className="brand__tag">automated lab log</span>
+            <span className="brand__tag">learning lab · CI syllabus</span>
           </span>
         </Link>
         <nav className="nav">
-          <Link to="/">Modules</Link>
+          <Link to="/">Learn</Link>
           <a
             href="https://github.com/AhmadRazaNewMan/Digital-Bit"
             target="_blank"
