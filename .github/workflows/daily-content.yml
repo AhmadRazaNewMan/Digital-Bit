@@ -1,13 +1,17 @@
 # Publishes one markdown note under content/modules/<module>/ per run, then commits + pushes.
 #
 # --- Schedule (pick one) ---
-# GitHub enforces minimum cron cadence of 5 minutes. See docs:
-# https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onschedule
-# So `*/2 * * * *` will NOT reliably fire every 2 minutes — use */5 minimum or workflow_dispatch for manual tests.
+# GitHub min interval = 5 minutes, AND schedules are best-effort — GitHub often DELAYS runs
+# (minutes to hours), especially at :00 each hour when load is high. You will NOT get exact wall-clock every 5 min.
+# Docs: https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#schedule
 #
-# TESTING: every 5 minutes      →  cron: "*/5 * * * *"
-# TESTING: every 10 minutes    →  cron: "*/10 * * * *"
-# PRODUCTION: once daily UTC    →  cron: "35 6 * * *"   (~06:35 UTC)
+# Offset minutes (e.g. 3-58/5) avoids firing exactly on the hour (:00) where delays pile up.
+#
+# TESTING ~every 5 min (best effort): cron: "3-58/5 * * * *"
+# TESTING every 10 min:             cron: "7-57/10 * * * *"
+# PRODUCTION daily UTC:             cron: "35 6 * * *"
+#
+# Need reliable timing? Trigger workflow_dispatch from an external cron (e.g. cron-job.org) + PAT.
 # Note: module rotates by UTC *day*, not by run — frequent runs add new posts for that day’s module.
 #
 # LLM API is Groq (https://console.groq.com) — secret name GROQ_API_KEY. Not xAI "Grok" (different product/key).
@@ -23,7 +27,7 @@ name: Daily content
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # TESTING: min GitHub allows; sub‑5‑min cron does not run reliably
+    - cron: "3-58/5 * * * *" # ~every 5 min UTC, offset from :00 (still subject to GitHub delays)
   workflow_dispatch: {}
 
 permissions:
