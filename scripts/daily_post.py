@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Creates one markdown post per day under content/modules/<module>/.
-Optional: set GROQ_API_KEY (or OPENAI_API_KEY + OPENAI_BASE_URL) for LLM body.
+Optional: set GROQ_API_KEY for Groq Cloud (console.groq.com) — not xAI Grok.
+Also OPENAI_API_KEY + OPENAI_BASE_URL for OpenAI-compatible APIs.
 """
 from __future__ import annotations
 
@@ -20,10 +21,15 @@ CONTENT = ROOT / "content" / "modules"
 
 
 def _load_dotenv() -> None:
-    """Load ROOT/.env into os.environ (no extra packages). Does not override existing env."""
+    """Load ROOT/.env into os.environ (no extra packages).
+
+    Fills missing vars. For API keys, also replaces empty shell values so
+    `export GROQ_API_KEY=` does not block `.env`.
+    """
     path = ROOT / ".env"
     if not path.is_file():
         return
+    fill_if_empty = frozenset({"GROQ_API_KEY", "OPENAI_API_KEY", "LLM_MODEL", "LLM_MAX_TOKENS"})
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
         if not line or line.startswith("#"):
@@ -35,7 +41,13 @@ def _load_dotenv() -> None:
         key, _, val = line.partition("=")
         key = key.strip()
         val = val.strip().strip("\ufeff").strip("'").strip('"')
-        if key and key not in os.environ:
+        if not key:
+            continue
+        if key in fill_if_empty:
+            cur = (os.environ.get(key) or "").strip()
+            if not cur:
+                os.environ[key] = val
+        elif key not in os.environ:
             os.environ[key] = val
 
 MODULES = [
@@ -94,7 +106,10 @@ def _chat_complete(url: str, key: str, model: str, module: str, title_hint: str)
     try:
         with urllib.request.urlopen(req, timeout=120) as resp:
             data = json.loads(resp.read().decode())
-        return data["choices"][0]["message"]["content"].strip()
+        text = data["choices"][0]["message"]["content"].strip()
+        host = "Groq Cloud" if "groq.com" in url else "LLM"
+        print(f"OK: {host} returned content (model={model!r}).", file=sys.stderr)
+        return text
     except urllib.error.HTTPError as e:
         detail = ""
         try:
