@@ -59,6 +59,74 @@ MODULES = [
     "dbms",
 ]
 
+# Picked at random each run so repeated DSA days don’t all become “Dijkstra again”.
+TOPIC_SPINS: dict[str, list[str]] = {
+    "dsa-algorithms": [
+        "topological sort (Kahn and DFS variants)",
+        "union-find / disjoint-set with path compression",
+        "binary indexed tree (Fenwick) vs segment tree — when to use which",
+        "sliding window maximum / monotone deque",
+        "two pointers on sorted arrays and duplicates",
+        "binary search on answer (min feasible / max capacity patterns)",
+        "meet-in-the-middle for subset sums (small n)",
+        "bit manipulation tricks for subsets and XOR paths",
+        "greedy exchange argument — proving correctness",
+        "interval scheduling / merging overlapping intervals",
+        "heap applications: median stream, k-way merge",
+        "trie for prefix search and autocomplete-style queries",
+        "rolling hash / Rabin–Karp for substring search",
+        "LCS / LIS intuition (DP states, not full code dump)",
+        "BFS vs DFS for grids and implicit graphs",
+        "shortest path with constraints (0–1 BFS idea)",
+        "strongly connected components — conceptual use cases",
+        "reservoir sampling for streaming data",
+        "counting inversions with merge sort pattern",
+        "backtracking with pruning — template and pitfalls",
+    ],
+    "frontend-basics": [
+        "semantic landmark regions and heading outline",
+        "form accessibility: labels, errors, focus management",
+        "CSS containment and layout thrashing basics",
+        "responsive typography with clamp()",
+        "critical rendering path — what blocks first paint",
+    ],
+    "javascript-typescript": [
+        "structural typing vs nominal — practical gotchas",
+        "narrowing with discriminated unions",
+        "async cancellation with AbortController",
+        "module resolution ESM vs CJS interop",
+        "generics for reusable API wrappers",
+    ],
+    "system-design": [
+        "idempotency keys for payments and retries",
+        "rate limiting: token bucket vs leaky bucket",
+        "cache stampede and probabilistic early expiration",
+        "CQRS — read vs write scaling tradeoffs",
+        "backpressure between services",
+    ],
+    "devops": [
+        "immutable artifacts vs mutable servers",
+        "health checks: liveness vs readiness",
+        "rolling deploys and failure budgets",
+        "structured logs vs metrics vs traces — when each",
+        "secrets rotation without downtime",
+    ],
+    "dbms": [
+        "B-tree vs LSM — intuition for OLTP vs heavy writes",
+        "transaction isolation anomalies (dirty read, phantom)",
+        "covering indexes and index-only scans",
+        "EXPLAIN basics — sequential scan vs index scan",
+        "normalization vs denormalization tradeoffs",
+    ],
+}
+
+
+def _random_spin(module: str) -> str:
+    opts = TOPIC_SPINS.get(module)
+    if not opts:
+        return "pick one concrete subtopic appropriate to this module"
+    return random.choice(opts)
+
 
 def _slug(s: str) -> str:
     return "-".join(s.lower().replace("/", "-").split())
@@ -77,15 +145,21 @@ def _chat_complete(url: str, key: str, model: str, module: str, title_hint: str)
         "messages": [
             {
                 "role": "system",
-                "content": "You write concise technical blog notes. Markdown only, no fenced code language mistakes, under 900 words.",
+                "content": (
+                    "You write concise technical blog notes. Markdown only, no fenced code language mistakes, under 900 words. "
+                    "Vary the concrete topic each time; do not default to Dijkstra or generic shortest-path unless the user focus explicitly asks for it."
+                ),
             },
             {
                 "role": "user",
-                "content": f"Module: {module}. Topic hint: {title_hint}. "
-                "Write: short title line as H1, then sections What / Why / How / One exercise or command / Further reading (bullets).",
+                "content": (
+                    f"Module: {module}. Topic hint: {title_hint}. "
+                    "Your H1 title must reflect TODAY'S FOCUS below—not a generic famous algorithm unless the focus demands it. "
+                    "Write: short title line as H1, then sections What / Why / How / One exercise or command / Further reading (bullets)."
+                ),
             },
         ],
-        "temperature": 0.65,
+        "temperature": 0.82,
         "max_tokens": int(os.environ.get("LLM_MAX_TOKENS", "2000")),
     }
     # Groq sits behind Cloudflare; default Python-urllib User-Agent often gets 403.
@@ -194,7 +268,11 @@ def main() -> int:
 
     day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     suffix = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    title_hint = f"{module.replace('-', ' ').title()} — daily topic {day}"
+    spin = _random_spin(module)
+    title_hint = (
+        f"{module.replace('-', ' ').title()} — daily note {day}. "
+        f"Today's focus (stick to this): {spin}"
+    )
     title = title_hint
 
     body = _llm_generate(module, title_hint)
