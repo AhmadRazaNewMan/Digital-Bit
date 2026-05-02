@@ -34,7 +34,7 @@ def _load_dotenv() -> None:
             continue
         key, _, val = line.partition("=")
         key = key.strip()
-        val = val.strip().strip("'").strip('"')
+        val = val.strip().strip("\ufeff").strip("'").strip('"')
         if key and key not in os.environ:
             os.environ[key] = val
 
@@ -87,12 +87,18 @@ def _llm_generate(module: str, title_hint: str) -> str | None:
         "temperature": 0.65,
         "max_tokens": int(os.environ.get("LLM_MAX_TOKENS", "2000")),
     }
+    # Groq sits behind Cloudflare; default Python-urllib User-Agent often gets 403.
+    ua = os.environ.get(
+        "HTTP_USER_AGENT",
+        "Digital-Bit-daily-post/1.0 (+https://github.com/AhmadRazaNewMan/Digital-Bit)",
+    )
     req = urllib.request.Request(
         url,
         data=json.dumps(body).encode(),
         headers={
             "Content-Type": "application/json",
             "Authorization": f"Bearer {key}",
+            "User-Agent": ua,
         },
         method="POST",
     )
@@ -100,7 +106,15 @@ def _llm_generate(module: str, title_hint: str) -> str | None:
         with urllib.request.urlopen(req, timeout=120) as resp:
             data = json.loads(resp.read().decode())
         return data["choices"][0]["message"]["content"].strip()
-    except (urllib.error.HTTPError, urllib.error.URLError, KeyError, json.JSONDecodeError) as e:
+    except urllib.error.HTTPError as e:
+        detail = ""
+        try:
+            detail = e.read().decode(errors="replace")[:1200]
+        except Exception:
+            pass
+        print(f"LLM skipped: {e}" + (f" | {detail}" if detail else ""), file=sys.stderr)
+        return None
+    except (urllib.error.URLError, KeyError, json.JSONDecodeError) as e:
         print(f"LLM skipped: {e}", file=sys.stderr)
         return None
 
