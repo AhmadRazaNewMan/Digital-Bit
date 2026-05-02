@@ -54,8 +54,15 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: |
-          python3 scripts/daily_post.py > /tmp/rel_path.txt
-          echo "REL_PATH=$(cat /tmp/rel_path.txt)" >> "$GITHUB_ENV"
+          if [ -z "${GROQ_API_KEY}" ]; then
+            echo "::warning::GROQ_API_KEY secret is empty — posts will be placeholders until you add it (Settings → Secrets and variables → Actions)."
+          else
+            echo "GROQ_API_KEY is set; calling Groq from the runner…"
+          fi
+          python3 scripts/daily_post.py > /tmp/rel_path.txt 2>/tmp/gen-stderr.log
+          if [ -s /tmp/gen-stderr.log ]; then echo "--- daily_post.py stderr ---"; cat /tmp/gen-stderr.log; echo "---"; fi
+          REL="$(tr -d '\r' < /tmp/rel_path.txt | head -1)"
+          echo "REL_PATH=$REL" >> "$GITHUB_ENV"
 
       - name: Commit and push
         run: |

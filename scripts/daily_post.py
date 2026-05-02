@@ -167,6 +167,11 @@ def main() -> int:
             title = first[2:].strip()
     else:
         body = _stub_body(module, title)
+        print(
+            "NOTE: Wrote placeholder (stub) note — not LLM text. "
+            "Set GitHub Actions secret GROQ_API_KEY (or fix LLM errors above).",
+            file=sys.stderr,
+        )
 
     base = f"{day}-{_slug(module)}"
     path = CONTENT / module / f"{base}.md"
