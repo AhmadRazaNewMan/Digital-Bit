@@ -29,3 +29,14 @@ Some recommended resources for learning more about connection pooling and timeou
 * Articles on database performance optimization and scalability
 * Tutorials on implementing retry mechanisms and error handling in your application
 * Books on backend development and database administration, such as "Database Systems: The Complete Book" and "Designing Data-Intensive Applications"
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
