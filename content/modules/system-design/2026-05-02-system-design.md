@@ -24,3 +24,14 @@ Try implementing a simple cache system with probabilistic early expiration using
   + Load balancing and traffic distribution
   + Request batching and coalescing
   + Asynchronous cache refresh and updates
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
