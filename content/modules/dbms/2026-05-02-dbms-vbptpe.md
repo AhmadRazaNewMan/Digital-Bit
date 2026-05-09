@@ -21,3 +21,14 @@ To illustrate the difference between B-tree and LSM, consider the following exam
 * Comparison of B-tree and LSM:
   + Paper: "The Log-Structured Merge-Tree (LSM-Tree)" by Patrick O'Neil et al.
   + Article: "B-Tree vs LSM: Which Indexing Technique is Right for Your Database?" by Database Trends and Applications
+
+## Senior interview checkpoint
+
+**Prompt:** Choose indexes for a high-cardinality filter + sort query and justify tradeoffs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
