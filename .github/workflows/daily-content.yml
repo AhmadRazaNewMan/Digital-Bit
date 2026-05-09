@@ -79,6 +79,7 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          AUTOPILOT_ALLOW_NEW_CONTENT: "0"
         run: |
           if [ -z "${GROQ_API_KEY}" ]; then
             echo "::warning::GROQ_API_KEY secret is empty — content-note mode will write placeholders until you add it."

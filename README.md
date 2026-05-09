@@ -74,10 +74,13 @@ python3 scripts/autopilot_maintain.py
 - `content-note` → generates a new module markdown note
 - `module-metrics` → refreshes `content/automation/module-metrics.json`
 - `highlights` → refreshes `content/automation/recent-highlights.md`
+- `legacy-upgrade` → updates an existing older module with a senior interview checkpoint
+- `ui-polish` → applies safe UI metadata polish in `web/src/lib/moduleCatalog.ts`
 
 Optional env override:
 
-- `AUTOPILOT_MODE=content-note|module-metrics|highlights|combo`
+- `AUTOPILOT_MODE=content-note|module-metrics|highlights|legacy-upgrade|ui-polish|combo`
+- `AUTOPILOT_ALLOW_NEW_CONTENT=0` disables new-file `content-note` commits in auto rotation
 
 
 Stderr prints whether Groq succeeded; stdout prints the new file path relative to repo root.
