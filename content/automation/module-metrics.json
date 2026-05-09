@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-09T09:07:10Z",
-  "totalPosts": 175,
+  "generatedAt": "2026-05-09T09:22:10Z",
+  "totalPosts": 176,
   "moduleCount": 7,
   "modules": {
     "backend": {
@@ -19,7 +19,7 @@
       "latestDatePrefix": "2026-05-09"
     },
     "dsa-algorithms": {
-      "count": 27,
+      "count": 28,
       "latestFile": "content/modules/dsa-algorithms/2026-05-09-dsa-algorithms.md",
       "latestDatePrefix": "2026-05-09"
     },
