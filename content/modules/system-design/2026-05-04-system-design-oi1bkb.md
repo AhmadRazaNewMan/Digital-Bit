@@ -29,3 +29,14 @@ To simulate backpressure in a system, you can use a command like `siege` to gene
   + Message queues like Apache Kafka or RabbitMQ
   + Load balancing solutions like HAProxy or NGINX
   + Monitoring tools like Prometheus or Grafana
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
