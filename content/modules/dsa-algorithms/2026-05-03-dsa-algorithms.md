@@ -20,3 +20,14 @@ Try to implement the meet-in-the-middle approach for subset sums in your favorit
 * This approach can be used to solve other problems, such as the knapsack problem.
 * The subset sum problem is NP-complete, meaning that the running time of traditional algorithms increases exponentially with the size of the input.
 * Approximation algorithms and heuristics can be used to solve the subset sum problem for larger inputs.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.

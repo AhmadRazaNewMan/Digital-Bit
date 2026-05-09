@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import json
 import os
+import random
+import re
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -27,6 +29,70 @@ CONTENT = ROOT / "content" / "modules"
 AUTOMATION = ROOT / "content" / "automation"
 METRICS_PATH = AUTOMATION / "module-metrics.json"
 HIGHLIGHTS_PATH = AUTOMATION / "recent-highlights.md"
+MODULE_CATALOG_PATH = ROOT / "web" / "src" / "lib" / "moduleCatalog.ts"
+
+INTERVIEW_BLOCK_HEADER = "## Senior interview checkpoint"
+INTERVIEW_PROMPTS: dict[str, list[str]] = {
+    "dsa-algorithms": [
+        "Design an approach for top-K frequent items in a streaming system with memory limits.",
+        "Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.",
+    ],
+    "frontend-basics": [
+        "Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.",
+        "Explain hydration mismatch root causes and debugging strategy in SSR apps.",
+    ],
+    "javascript-typescript": [
+        "Refactor an API client to discriminated unions; show how this prevents runtime bugs.",
+        "Design cancellation-safe async flow with AbortController for chained requests.",
+    ],
+    "backend": [
+        "Design idempotent retry handling for a payment callback endpoint.",
+        "Explain how to debug p95 latency spikes in a Node API under burst traffic.",
+    ],
+    "system-design": [
+        "Design a rate limiter that supports both global and per-user quotas.",
+        "Explain cache invalidation strategy for hot keys with high write rates.",
+    ],
+    "devops": [
+        "Draft a rollback plan for failed blue-green deployment with partial data migrations.",
+        "Design CI guardrails to prevent secret leaks and oversized images.",
+    ],
+    "dbms": [
+        "Choose indexes for a high-cardinality filter + sort query and justify tradeoffs.",
+        "Explain how isolation level affects deadlocks in write-heavy workloads.",
+    ],
+}
+
+TAGLINE_ALTS: dict[str, list[str]] = {
+    "dsa-algorithms": [
+        "Complexity, patterns, interview readiness",
+        "Problem-solving drills and performance tradeoffs",
+    ],
+    "frontend-basics": [
+        "UI structure, accessibility, and rendering speed",
+        "Readable interfaces with resilient UX",
+    ],
+    "javascript-typescript": [
+        "Type-safe apps, async control, cleaner abstractions",
+        "Runtime safety with practical TypeScript patterns",
+    ],
+    "backend": [
+        "APIs, auth, reliability, and service boundaries",
+        "Production-grade endpoints and failure handling",
+    ],
+    "system-design": [
+        "Scale, tradeoffs, and architecture judgement",
+        "Design choices for growth, latency, and reliability",
+    ],
+    "devops": [
+        "Build, release, observe, and recover confidently",
+        "CI/CD discipline and operational excellence",
+    ],
+    "dbms": [
+        "Queries, indexes, transactions, data correctness",
+        "Storage design and performance tuning fundamentals",
+    ],
+}
 
 
 @dataclass(frozen=True)
@@ -55,16 +121,23 @@ def _iter_posts() -> list[Post]:
 
 def _pick_mode() -> str:
     forced = (os.environ.get("AUTOPILOT_MODE") or "").strip().lower()
-    allowed = {"content-note", "module-metrics", "highlights", "combo"}
+    allowed = {"content-note", "module-metrics", "highlights", "legacy-upgrade", "ui-polish", "combo"}
     if forced in allowed:
         return forced
 
+    allow_new_content = (os.environ.get("AUTOPILOT_ALLOW_NEW_CONTENT") or "1").strip().lower()
+    allow_content_note = allow_new_content not in {"0", "false", "no", "off"}
+
+    # Weighted, so most commits improve existing content/code (not always new files).
     run = (os.environ.get("GITHUB_RUN_NUMBER") or "").strip()
+    modes = ["legacy-upgrade", "ui-polish", "module-metrics", "highlights"]
+    if allow_content_note:
+        modes.append("content-note")
     if run.isdigit():
-        idx = int(run) % 3
+        idx = int(run) % len(modes)
     else:
-        idx = datetime.now(timezone.utc).timetuple().tm_yday % 3
-    return ["content-note", "module-metrics", "highlights"][idx]
+        idx = datetime.now(timezone.utc).timetuple().tm_yday % len(modes)
+    return modes[idx]
 
 
 def _run_daily_post() -> list[Path]:
@@ -143,6 +216,65 @@ def _refresh_highlights(posts: list[Post]) -> list[Path]:
     return [HIGHLIGHTS_PATH]
 
 
+def _upgrade_existing_module(posts: list[Post]) -> list[Path]:
+    if not posts:
+        return []
+    ranked = sorted(posts, key=lambda p: p.path.name)
+    target = random.choice(ranked[: max(1, len(ranked) // 2)])
+    src = target.path.read_text(encoding="utf-8")
+    if INTERVIEW_BLOCK_HEADER in src:
+        # Find first file without the section to avoid no-op commits.
+        for p in ranked:
+            text = p.path.read_text(encoding="utf-8")
+            if INTERVIEW_BLOCK_HEADER not in text:
+                target = p
+                src = text
+                break
+        else:
+            return []
+
+    bank = INTERVIEW_PROMPTS.get(target.module) or INTERVIEW_PROMPTS["backend"]
+    prompt = random.choice(bank)
+    patch = (
+        f"\n{INTERVIEW_BLOCK_HEADER}\n\n"
+        f"**Prompt:** {prompt}\n\n"
+        "**What a senior answer should include**\n\n"
+        "- Constraints first (traffic, latency, reliability, ownership boundaries).\n"
+        "- Tradeoffs with at least two viable alternatives.\n"
+        "- Failure modes, observability signals, and rollback plan.\n"
+        "- A measurable success criterion after rollout.\n"
+    )
+    out = src.rstrip() + "\n" + patch
+    target.path.write_text(out, encoding="utf-8")
+    return [target.path]
+
+
+def _ui_polish_module_catalog() -> list[Path]:
+    if not MODULE_CATALOG_PATH.exists():
+        return []
+    src = MODULE_CATALOG_PATH.read_text(encoding="utf-8")
+    ids = sorted(TAGLINE_ALTS.keys())
+    if not ids:
+        return []
+    ridx = datetime.now(timezone.utc).timetuple().tm_yday % len(ids)
+    module_id = ids[ridx]
+    tagline = random.choice(TAGLINE_ALTS[module_id])
+    hue = 20 + ((datetime.now(timezone.utc).toordinal() * 37 + ridx * 11) % 320)
+
+    block_re = re.compile(rf'(\{{\s*id:\s*"{re.escape(module_id)}",.*?\n\s*\}})', re.S)
+    match = block_re.search(src)
+    if not match:
+        return []
+    block = match.group(1)
+    new_block = re.sub(r'tagline:\s*"[^"]*",', f'tagline: "{tagline}",', block, count=1)
+    new_block = re.sub(r"hue:\s*\d+,", f"hue: {hue},", new_block, count=1)
+    if new_block == block:
+        return []
+    out = src[: match.start(1)] + new_block + src[match.end(1) :]
+    MODULE_CATALOG_PATH.write_text(out, encoding="utf-8")
+    return [MODULE_CATALOG_PATH]
+
+
 def main() -> int:
     mode = _pick_mode()
     changed: list[Path] = []
@@ -151,6 +283,10 @@ def main() -> int:
         changed.extend(_run_daily_post())
 
     posts = _iter_posts()
+    if mode in {"legacy-upgrade", "combo"}:
+        changed.extend(_upgrade_existing_module(posts))
+    if mode in {"ui-polish", "combo"}:
+        changed.extend(_ui_polish_module_catalog())
     if mode in {"module-metrics", "combo"}:
         changed.extend(_refresh_metrics(posts))
     if mode in {"highlights", "combo"}:
