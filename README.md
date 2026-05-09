@@ -17,7 +17,8 @@ Digital-Bit/
 │   ├── devops/
 │   └── dbms/
 ├── scripts/
-│   └── daily_post.py        # Creates one .md per run; rotates MODULES; calls Groq optional
+│   ├── daily_post.py        # Content-note generator
+│   └── autopilot_maintain.py # No-touch task rotator (content/metrics/highlights)
 ├── web/                     # Frontend (Vite + React + TypeScript + Three.js)
 │   ├── src/
 │   │   ├── lib/moduleCatalog.ts   # Track labels & order — keep in sync with daily_post.py MODULES
@@ -25,7 +26,7 @@ Digital-Bit/
 │   ├── package.json
 │   └── vite.config.ts
 ├── .github/workflows/
-│   └── daily-content.yml    # CI: checkout → generate → commit → push
+│   └── daily-content.yml    # CI: checkout → autopilot task → commit → push
 ├── vercel.json              # Monorepo build: install/build inside web/, SPA rewrites
 ├── .env.example             # Local Groq key template (never commit real .env)
 └── README.md
@@ -62,6 +63,22 @@ Within a run, the LLM also gets a **random “today’s focus”** line per trac
 cp .env.example .env   # add GROQ_API_KEY from https://console.groq.com
 python3 scripts/daily_post.py
 ```
+### No-touch autopilot (recommended)
+
+```bash
+python3 scripts/autopilot_maintain.py
+```
+
+`autopilot_maintain.py` rotates genuine maintenance tasks automatically:
+
+- `content-note` → generates a new module markdown note
+- `module-metrics` → refreshes `content/automation/module-metrics.json`
+- `highlights` → refreshes `content/automation/recent-highlights.md`
+
+Optional env override:
+
+- `AUTOPILOT_MODE=content-note|module-metrics|highlights|combo`
+
 
 Stderr prints whether Groq succeeded; stdout prints the new file path relative to repo root.
 
@@ -92,6 +109,10 @@ Output: `web/dist/`.
 3. **`on.schedule`:** GitHub only guarantees a **minimum** of **5 minutes** between scheduled runs; delays are normal. For clock-stable **every 5 minutes**, trigger **`workflow_dispatch`** from an external cron using the REST API and a PAT (see earlier setup notes).
 
 Workflow file: `.github/workflows/daily-content.yml`.
+
+The workflow now runs `scripts/autopilot_maintain.py`, commits only when git has staged changes, and pushes with commit message:
+
+- `autopilot(<mode>): real maintenance update`
 
 ---
 

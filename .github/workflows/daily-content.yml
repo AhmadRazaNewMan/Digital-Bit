@@ -23,7 +23,7 @@
 #
 # GitHub: Settings → Actions → General → Workflow permissions → Read and write.
 
-name: Daily content
+name: Daily autopilot maintenance
 
 on:
   schedule:
@@ -34,7 +34,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-content
+  group: daily-autopilot
   cancel-in-progress: false
 
 jobs:
@@ -75,24 +75,30 @@ jobs:
           git config user.email "$EMAIL"
           echo "Using commit identity: $(git config user.name) <$(git config user.email)>"
 
-      - name: Generate post
+      - name: Run autopilot maintenance
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: |
           if [ -z "${GROQ_API_KEY}" ]; then
-            echo "::warning::GROQ_API_KEY secret is empty — posts will be placeholders until you add it (Settings → Secrets and variables → Actions)."
+            echo "::warning::GROQ_API_KEY secret is empty — content-note mode will write placeholders until you add it."
           else
             echo "GROQ_API_KEY is set; calling Groq from the runner…"
           fi
-          python3 scripts/daily_post.py > /tmp/rel_path.txt 2>/tmp/gen-stderr.log
-          if [ -s /tmp/gen-stderr.log ]; then echo "--- daily_post.py stderr ---"; cat /tmp/gen-stderr.log; echo "---"; fi
-          REL="$(tr -d '\r' < /tmp/rel_path.txt | head -1)"
-          echo "REL_PATH=$REL" >> "$GITHUB_ENV"
+          python3 scripts/autopilot_maintain.py > /tmp/autopilot.json 2>/tmp/gen-stderr.log
+          if [ -s /tmp/gen-stderr.log ]; then echo "--- autopilot stderr ---"; cat /tmp/gen-stderr.log; echo "---"; fi
+          echo "AUTOPILOT_RESULT=$(tr -d '\r' < /tmp/autopilot.json)" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("/tmp/autopilot.json")
+          data = json.loads(p.read_text(encoding="utf-8"))
+          print(f"mode={data.get('mode')} changed={data.get('changedCount')} files={data.get('changedFiles')}")
+          PY
 
       - name: Commit and push
         run: |
-          git add "$REL_PATH"
+          git add -A
           if git diff --staged --quiet; then
             echo "Nothing to commit"
             exit 0
@@ -101,5 +107,15 @@ jobs:
           export GIT_AUTHOR_EMAIL="$(git config user.email)"
           export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
           export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-          git commit -m "daily: add ${REL_PATH}"
+          MODE="$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+          try:
+              data = json.loads(Path('/tmp/autopilot.json').read_text(encoding='utf-8'))
+              print(data.get('mode', 'autopilot'))
+          except Exception:
+              print('autopilot')
+          PY
+          )"
+          git commit -m "autopilot(${MODE}): real maintenance update"
           git push
