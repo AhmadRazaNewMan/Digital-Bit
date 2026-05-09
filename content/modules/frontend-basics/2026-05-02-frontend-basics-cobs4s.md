@@ -16,3 +16,14 @@ Try adding the `aria-required` attribute to a form element, such as a text input
 * The ARIA specification offers guidance on using ARIA attributes to enhance form accessibility
 * The W3C tutorial on accessible forms provides practical examples and best practices for creating accessible forms
 * Online tools such as Lighthouse and WAVE can be used to test the accessibility of forms and identify areas for improvement
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
