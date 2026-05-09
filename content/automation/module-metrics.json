@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-09T09:28:15Z",
-  "totalPosts": 177,
+  "generatedAt": "2026-05-09T09:42:11Z",
+  "totalPosts": 178,
   "moduleCount": 7,
   "modules": {
     "backend": {
@@ -9,7 +9,7 @@
       "latestDatePrefix": "2026-05-09"
     },
     "dbms": {
-      "count": 25,
+      "count": 26,
       "latestFile": "content/modules/dbms/2026-05-09-dbms.md",
       "latestDatePrefix": "2026-05-09"
     },
