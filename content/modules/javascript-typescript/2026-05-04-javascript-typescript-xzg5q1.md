@@ -37,3 +37,14 @@ apiWrapper.fetchData().then((response) => console.log(response.data));
 * The official TypeScript documentation on generics: https://www.typescriptlang.org/docs/handbook/2/generics.html
 * An article on using generics in TypeScript for API wrappers: https://medium.com/@ghastelyn/typescript-generics-for-api-wrappers-5d5f6c0f4e2
 * A tutorial on creating reusable API wrappers with TypeScript and generics: https://www.freecodecamp.org/news/building-reusable-api-wrappers-with-typescript-generics-3d2d6f90a2f3/
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
