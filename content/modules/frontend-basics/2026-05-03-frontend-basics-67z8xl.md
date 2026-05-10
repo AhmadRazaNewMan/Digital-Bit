@@ -26,3 +26,14 @@ This will help you understand how focus management works and how to create a mor
 * [ARIA attributes for form elements](https://www.w3.org/TR/wai-aria-1.2/#aria-attrs)
 * [Accessible form design patterns](https://www.w3.org/WAI/perspective-videos/accessible-forms/)
 * [Using `tabindex` to manage focus](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
