@@ -35,3 +35,14 @@ Run the command `tsc` to compile the TypeScript code, and then run `node build/m
 * [Node.js documentation on ESM](https://nodejs.org/api/esm.html)
 * [Node.js documentation on CJS](https://nodejs.org/api/modules.html)
 * [TypeScript configuration options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
