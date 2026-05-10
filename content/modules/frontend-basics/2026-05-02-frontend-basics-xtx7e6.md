@@ -15,3 +15,14 @@ Try applying the following CSS rule to a paragraph element: `font-size: clamp(1.
 * Learn more about the `clamp()` function and its applications in CSS on [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp).
 * Explore responsive typography techniques and best practices on [A List Apart](https://www.alistapart.com/topics/design/typography/responsive-typography/).
 * Discover how to use `clamp()` in combination with other CSS features, such as media queries and CSS grids, on [CSS-Tricks](https://css-tricks.com).
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
