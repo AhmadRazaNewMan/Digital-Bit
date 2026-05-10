@@ -35,3 +35,14 @@ This command creates a readable stream for a large file and logs the number of b
   * Support for random access to file data
 * Node.js streaming documentation: https://nodejs.org/api/stream.html
 * Node.js fs module documentation: https://nodejs.org/api/fs.html
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
