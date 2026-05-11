@@ -16,3 +16,14 @@ Try implementing a simple cache system with probabilistic early expiration using
 * Understand the trade-offs between cache hit ratio, latency, and resource utilization
 * Explore other techniques to mitigate cache stampede, such as cache locking and asynchronous cache refresh
 * Study real-world examples of cache systems that use probabilistic early expiration, such as Redis and Memcached
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
