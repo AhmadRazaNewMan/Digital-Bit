@@ -22,3 +22,14 @@ Try adding the `autocomplete` attribute to a form field and test how it affects 
 * WebAIM - Creating accessible forms
 * ARIA Authoring Practices - Form examples and best practices
 * WCAG 2.1 - Success Criteria for accessible forms
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
