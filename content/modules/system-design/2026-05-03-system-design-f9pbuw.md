@@ -17,3 +17,14 @@ Try designing a simple payment system that incorporates idempotency keys. Consid
 * Handling retries and timeouts in distributed systems
 * Payment Card Industry Data Security Standard (PCI-DSS) guidelines for idempotency and retries
 * Case studies of companies that have successfully implemented idempotency keys for payments and retries
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
