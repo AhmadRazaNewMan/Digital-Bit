@@ -30,3 +30,14 @@ Try using a popular validation library such as `joi` or `zod` to define a schema
   + `zod`
   + `ajv`
 * Best practices for implementing validation at the boundary in backend systems
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how to debug p95 latency spikes in a Node API under burst traffic.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
