@@ -20,3 +20,14 @@ To simulate backpressure in a system, you can use a tool like `apache-jmeter` to
 * **Distributed system principles**: to understand the fundamentals of distributed systems and how backpressure can impact system design
 * **Service mesh architectures**: to explore how service meshes can help manage backpressure and improve the reliability of distributed systems
 * **Queueing theory**: to dive deeper into the mathematical models that underlie queueing systems and understand how to optimize queueing strategies for managing backpressure
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
