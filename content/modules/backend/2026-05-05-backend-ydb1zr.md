@@ -30,3 +30,14 @@ To get started with validation at the boundary, try creating a simple JSON Schem
   + JSON Schema documentation: https://json-schema.org/
   + Ajv documentation: https://ajv.js.org/
   + API design best practices: https://apiblueprint.org/
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
