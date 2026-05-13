@@ -16,3 +16,14 @@ Try implementing the Rabin-Karp algorithm to search for the substring "abc" in t
 * Rolling hash is used in other algorithms, such as the Karp-Rabin algorithm for string matching and the LZ77 algorithm for data compression.
 * The choice of base and modulus in the rolling hash function affects the algorithm's performance and accuracy.
 * Implementing the Rabin-Karp algorithm in practice requires considering factors such as hash collisions and string encoding.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
