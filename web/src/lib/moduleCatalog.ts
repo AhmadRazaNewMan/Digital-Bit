@@ -47,7 +47,7 @@ export const MODULE_CATALOG: ModuleMeta[] = [
   {
     id: "dbms",
     label: "Databases",
-    tagline: "Storage design and performance tuning fundamentals",
+    tagline: "Queries, indexes, transactions, data correctness",
     hue: 221,
   },
 ];
