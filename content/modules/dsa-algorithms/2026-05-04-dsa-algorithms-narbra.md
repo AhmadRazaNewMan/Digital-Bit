@@ -20,3 +20,14 @@ Try to solve the "Capacity To Ship Packages Within D Days" problem, where you ne
   + Capacity To Ship Packages Within D Days
   + Minimize Max Distance to Closest Person
   + Koko Eating Bananas
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
