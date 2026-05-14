@@ -25,3 +25,14 @@ Then, retry the request with the same token and verify the server's response.
 * Understanding resource versioning and its application in ensuring idempotence
 * Best practices for handling retries and duplicate requests in backend development
 * Case studies on idempotence in real-world backend systems and their impact on data integrity and system reliability
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how to debug p95 latency spikes in a Node API under burst traffic.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
