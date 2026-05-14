@@ -47,8 +47,8 @@ export const MODULE_CATALOG: ModuleMeta[] = [
   {
     id: "dbms",
     label: "Databases",
-    tagline: "SQL, indexes, transactions",
-    hue: 265,
+    tagline: "Queries, indexes, transactions, data correctness",
+    hue: 221,
   },
 ];
 
