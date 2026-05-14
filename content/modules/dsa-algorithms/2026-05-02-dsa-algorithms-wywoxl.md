@@ -26,3 +26,14 @@ Implement the Rabin–Karp algorithm to search for the pattern "abc" in the text
 * Key disadvantages include:
   + Can have poor performance in the worst case (e.g., when all substrings have the same hash value)
   + Requires careful choice of hash function to minimize collisions
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
