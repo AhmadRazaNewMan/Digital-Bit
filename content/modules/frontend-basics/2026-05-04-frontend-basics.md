@@ -16,3 +16,14 @@ Try adding the `contain: layout` property to a complex component in your web app
 * Layout Thrashing and How to Avoid it: https://www.youtube.com/watch?v=zH_3ZCIyiL4
 * CSS Containment and Layout Thrashing: https://developer.mozilla.org/en-US/docs/Web/CSS/contain
 * Optimizing Performance with CSS Containment: https://web.dev/optimize-css-containment/
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
