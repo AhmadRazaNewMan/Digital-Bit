@@ -20,3 +20,14 @@ In this example, `mymodule.mjs` is an ESM file that imports a CJS module.
 * The [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/modules.html) covers module resolution and interop in TypeScript
 * The [ECMAScript specification](https://tc39.es/ecma262/) defines the syntax and semantics of ESM
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) provide a comprehensive guide to JavaScript modules and interop
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
