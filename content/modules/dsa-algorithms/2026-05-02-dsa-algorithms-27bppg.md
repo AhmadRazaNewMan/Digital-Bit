@@ -16,3 +16,14 @@ Try to define the base cases and the recurrence relations for both LCS and LIS p
 * Explore how to reconstruct the actual subsequences from the filled DP tables
 * Look into variations of these problems, such as finding the shortest common supersequence
 * Apply LCS and LIS to real-world problems or coding challenges to practice your skills
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
