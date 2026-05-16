@@ -28,3 +28,14 @@ This attribute helps users by pre-filling the form field with their saved email 
 * [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/)
 * [ARIA attributes for accessibility](https://www.w3.org/TR/wai-aria/)
 * [Form accessibility best practices](https://www.w3.org/WAI/tutorials/forms/)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
