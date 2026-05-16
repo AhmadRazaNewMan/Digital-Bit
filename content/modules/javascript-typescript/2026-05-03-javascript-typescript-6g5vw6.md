@@ -32,3 +32,14 @@ setTimeout(() => {
 * Best practices for using AbortController: https://web.dev/abortable-fetch 
 * AbortController support in browsers: https://caniuse.com/abortcontroller 
 * AbortController polyfill for older browsers: https://github.com/moznion/abortcontroller-polyfill
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
