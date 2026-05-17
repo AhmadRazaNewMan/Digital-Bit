@@ -26,3 +26,14 @@ Try running a command like `kubectl logs -f` to stream recent logs from a pod in
 * [ELK Stack](https://www.elastic.co/what-is/elk-stack) for log collection, processing, and visualization
 * [Distributed Tracing](https://www.jaegertracing.io/) for understanding complex system flows
 * [Monitoring and Observability](https://www.weave.works/blog/monitoring-and-observability-what-is-the-difference) to distinguish between monitoring and observability concepts in devops
+
+## Senior interview checkpoint
+
+**Prompt:** Draft a rollback plan for failed blue-green deployment with partial data migrations.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
