@@ -20,3 +20,14 @@ Try setting up a simple logging system using a tool like ELK (Elasticsearch, Log
 * Distributed tracing with Jaeger: https://www.jaegertracing.io/docs/getting-started/ 
 * Comparison of monitoring tools: https://stackify.com/monitoring-tools/ 
 * Best practices for logging and monitoring: https://www.datadoghq.com/blog/logging-101/
+
+## Senior interview checkpoint
+
+**Prompt:** Design CI guardrails to prevent secret leaks and oversized images.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
