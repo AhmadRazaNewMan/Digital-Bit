@@ -23,3 +23,14 @@ Given a set of intervals `[(1, 3), (2, 4), (5, 7), (6, 8)]`, write a command to 
 * Applications of interval scheduling in logistics and resource allocation
 * Time complexity analysis of interval scheduling and merging algorithms
 * Example use cases in calendar scheduling and meeting coordination
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
