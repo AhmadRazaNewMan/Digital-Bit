@@ -20,3 +20,14 @@ Remove duplicates from a sorted array [1, 1, 2, 3, 3, 3, 4, 5, 5] using the two 
   * Implementing binary search in a sorted array
 * The two pointers technique can be applied to other data structures, such as linked lists and strings
 * The time complexity of the two pointers technique can vary depending on the specific problem, but it is often O(n) or O(log n)
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
