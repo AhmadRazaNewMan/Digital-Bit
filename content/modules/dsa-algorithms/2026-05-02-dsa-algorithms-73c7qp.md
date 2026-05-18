@@ -21,3 +21,14 @@ To test your understanding of reservoir sampling, try implementing the algorithm
 * Reservoir sampling has many applications in data mining, machine learning, and data science.
 * The algorithm can be extended to handle weighted sampling, where each item has a weight associated with it.
 * Reservoir sampling can be used in conjunction with other algorithms, such as clustering and classification, to improve their performance on streaming data.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
