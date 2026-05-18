@@ -18,3 +18,14 @@ Try updating the font size of a heading element using `clamp()`: `h1 { font-size
 * [MDN Web Docs: clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 * [CSS-Tricks: Responsive Typography with clamp()](https://css-tricks.com/responsive-typography-with-clamp/)
 * [W3C: CSS Values and Units Module Level 4](https://www.w3.org/TR/css-values-4/#funcdef-clamp)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
