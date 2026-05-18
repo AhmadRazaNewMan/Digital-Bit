@@ -17,3 +17,14 @@ Try implementing a BFS algorithm to find the shortest path between two points in
 * Implicit graphs: representing and traversing graphs without explicit edges
 * Time and space complexity analysis of BFS and DFS on grids and implicit graphs
 * Real-world applications of BFS and DFS in fields like game development, network analysis, and robotics
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
