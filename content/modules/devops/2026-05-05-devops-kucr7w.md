@@ -27,3 +27,14 @@ Try building a Docker image for a simple web application using the following com
   * Automate provisioning and deployment
   * Monitor and log changes to infrastructure
   * Use continuous integration and continuous deployment (CI/CD) pipelines
+
+## Senior interview checkpoint
+
+**Prompt:** Draft a rollback plan for failed blue-green deployment with partial data migrations.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
