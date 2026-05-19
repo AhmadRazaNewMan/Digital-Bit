@@ -17,3 +17,14 @@ To practice implementing topological sort, try writing a program that takes a DA
 * Study the trade-offs between Kahn's algorithm and the DFS-based approach in terms of time and space complexity.
 * Explore applications of topological sort in real-world scenarios, such as data processing pipelines or software build systems.
 * Learn about the relationship between topological sort and other graph algorithms, such as strongly connected component decomposition.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
