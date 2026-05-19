@@ -17,3 +17,14 @@ Try to design a simple e-commerce system using CQRS. Define the commands for cre
 * Implementing CQRS with event sourcing
 * Scaling CQRS systems with caching and load balancing
 * Using CQRS in real-time analytics systems
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
