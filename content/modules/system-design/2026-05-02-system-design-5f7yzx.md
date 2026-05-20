@@ -24,3 +24,14 @@ Try implementing a simple cache system with probabilistic early expiration using
   * Research papers on cache stampede and probabilistic early expiration
   * System design blogs and tutorials
   * Distributed system architecture books
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
