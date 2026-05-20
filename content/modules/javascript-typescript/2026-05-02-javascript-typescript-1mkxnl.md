@@ -30,3 +30,14 @@ console.log(point1.x === point2.x); // true
 * TypeScript documentation on [type compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html)
 * Article on [structural typing vs nominal typing](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html#structural-type-system)
 * Stack Overflow question on [differences between structural and nominal typing](https://stackoverflow.com/questions/41673657/what-is-the-difference-between-structural-and-nominal-type-systems)
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
