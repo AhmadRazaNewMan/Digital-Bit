@@ -18,3 +18,14 @@ Try to implement BFS and DFS to find a path in a maze represented as a grid, whe
 * Difference between explicit and implicit graphs
 * Using BFS and DFS to solve problems in computer vision and game development
 * Optimizing BFS and DFS for large-scale graphs and grids
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
