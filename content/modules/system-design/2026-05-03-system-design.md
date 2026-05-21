@@ -24,3 +24,14 @@ To get started with CQRS, try creating a simple e-commerce system that separates
   + Microsoft Azure documentation on CQRS
   + Greg Young's introduction to CQRS
   + Udi Dahan's blog on CQRS and event sourcing
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
