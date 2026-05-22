@@ -18,3 +18,14 @@ To test rate limiting, you can use tools like `curl` to simulate multiple reques
 * Best practices for setting rate limit thresholds and response codes
 * Using rate limiting to prevent brute-force attacks on authentication endpoints
 * Comparison of rate limiting algorithms, such as token bucket and leaky bucket
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
