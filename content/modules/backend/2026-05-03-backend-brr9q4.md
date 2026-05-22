@@ -27,3 +27,14 @@ To get started with GraphQL, try running the following command to install the Gr
   + https://en.wikipedia.org/wiki/Remote_procedure_call
 * GraphQL:
   + https://graphql.org/learn/
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
