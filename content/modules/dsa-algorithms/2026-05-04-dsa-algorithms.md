@@ -16,3 +16,14 @@ Given a graph with nodes {A, B, C, D, E} and edges [(A, B, 0), (A, C, 1), (B, D,
 * Understanding the deque data structure and its applications
 * Examples of constrained shortest path problems and their solutions using 0–1 BFS
 * Comparison of 0–1 BFS with other algorithms for constrained shortest path problems, such as Bellman-Ford or A\* algorithms.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
