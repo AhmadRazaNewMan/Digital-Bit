@@ -23,3 +23,14 @@ controller.abort(); // cancel the request
 * The [AbortController API](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) provides more information on how to use the API.
 * [Using AbortController to cancel fetch requests](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort) provides examples of how to use the AbortController with fetch requests.
 * [Async cancellation in JavaScript](https://web.dev/abortable-fetch) provides an overview of async cancellation in JavaScript and how to use the AbortController.
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
