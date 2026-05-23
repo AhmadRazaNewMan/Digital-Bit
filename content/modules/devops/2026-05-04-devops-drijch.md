@@ -38,3 +38,14 @@ This example demonstrates how to configure liveness and readiness probes for a c
 * Kubernetes documentation on [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 * [Best practices for implementing health checks](https://aws.amazon.com/blogs/containers/monitoring-container-health-with-aws-ecs/)
 * [Differences between liveness and readiness probes](https://www.datadoghq.com/blog/how-to-monitor-service-health-with-readiness-probes/)
+
+## Senior interview checkpoint
+
+**Prompt:** Design CI guardrails to prevent secret leaks and oversized images.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
