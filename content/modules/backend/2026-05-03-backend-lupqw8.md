@@ -24,3 +24,14 @@ To get started with background jobs and the outbox pattern, try setting up a sim
 * [Outbox Pattern Article](https://microservices.io/patterns/data/transactional-outbox.html) for a detailed explanation of the outbox pattern
 * [Celery Documentation](https://docs.celeryq.dev/en/stable/) for using Celery as a background worker process
 * [Zato Documentation](https://zato.io/docs/) for using Zato as a background worker process and integration platform
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how to debug p95 latency spikes in a Node API under burst traffic.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
