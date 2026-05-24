@@ -19,3 +19,14 @@ Try using the following command to roll out a new version of a deployment using 
 * Learn more about Kubernetes rolling updates: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 * Understand failure budgets and how to set them: https://sre.google/sre-book/failure-budgets/
 * Explore Ansible deploy playbooks: https://docs.ansible.com/ansible/latest/user_guide/playbooks.html
+
+## Senior interview checkpoint
+
+**Prompt:** Draft a rollback plan for failed blue-green deployment with partial data migrations.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
