@@ -22,3 +22,14 @@ Try solving the "Capacity To Ship Packages Within D Days" problem on LeetCode, w
 * Watch a video on YouTube explaining the concept of binary search on answer patterns and its applications.
 * Read the "Binary Search" chapter in the "Introduction to Algorithms" book by Thomas H. Cormen to gain a deeper understanding of the technique.
 * Practice solving problems on platforms like LeetCode, HackerRank, or CodeForces that involve binary search on answer patterns.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
