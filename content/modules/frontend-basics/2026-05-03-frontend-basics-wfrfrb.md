@@ -16,3 +16,14 @@ Try adding the following CSS rule to an element that is being frequently updated
 * [Web Fundamentals: Avoiding layout thrashing](https://web.dev/avoiding-layout-thrashing/)
 * [CSS-Tricks: CSS Containment](https://css-tricks.com/css-containment/)
 * [W3C: CSS Containment Module Level 1](https://www.w3.org/TR/css-contain-1/)
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
