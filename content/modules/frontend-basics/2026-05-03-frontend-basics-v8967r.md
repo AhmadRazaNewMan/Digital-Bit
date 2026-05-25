@@ -15,3 +15,14 @@ Try setting up a basic HTML page with a paragraph of text and apply the followin
 * The official Mozilla documentation on [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) provides in-depth information on its syntax and usage.
 * A List Apart's article on [Scaling Font Size With the `clamp()` Function](https://www.alistapart.com/article/scaling-font-size-with-the-clamp-function/) offers practical examples and design considerations.
 * The W3C's [CSS Values and Units Module Level 4](https://www.w3.org/TR/css-values-4/#funcdef-clamp) specification defines the `clamp()` function and its behavior in detail.
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
