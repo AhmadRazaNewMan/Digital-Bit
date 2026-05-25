@@ -16,3 +16,14 @@ Implement a function `sliding_window_max` that takes an array `arr` and a window
 * The time complexity of the monotone deque approach is O(n), where n is the size of the input array.
 * The space complexity of the monotone deque approach is O(k), where k is the window size.
 * Other variations of the sliding window maximum problem include finding the minimum element in a subarray, or finding the maximum or minimum element in a subarray with certain constraints.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
