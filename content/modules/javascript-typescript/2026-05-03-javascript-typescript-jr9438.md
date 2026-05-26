@@ -18,3 +18,14 @@ Try running the command `node --experimental-vm-modules your-esm-file.mjs` to te
 * TypeScript documentation on [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
 * MDN Web Docs on [ECMAScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 * Node.js documentation on [ESM support](https://nodejs.org/api/esm.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
