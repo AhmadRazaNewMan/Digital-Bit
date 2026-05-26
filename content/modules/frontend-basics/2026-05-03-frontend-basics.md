@@ -16,3 +16,14 @@ To test the accessibility of a web page, you can use the `aria-labelledby` attri
 * The HTML5 specification defines the different landmark regions and heading elements that can be used to structure web pages.
 * The ARIA (Accessible Rich Internet Applications) specification provides a way to make dynamic web content more accessible to users with disabilities.
 * The WebAIM (Web Accessibility in Mind) website provides tutorials, articles, and resources for learning about web accessibility and implementing semantic landmark regions and heading outlines.
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
