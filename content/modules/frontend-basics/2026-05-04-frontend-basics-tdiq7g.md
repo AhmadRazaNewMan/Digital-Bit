@@ -17,3 +17,14 @@ To test the accessibility of a webpage, you can use the WAVE Web Accessibility E
 * A11y project resources and tutorials
 * WebAIM articles on web accessibility and heading outlines
 * Mozilla Developer Network (MDN) documentation on HTML structure and accessibility
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
