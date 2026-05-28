@@ -19,3 +19,14 @@ Try running the following command to verify the module type of a package: `node 
 * [Node.js Documentation: ES Modules](https://nodejs.org/api/esm.html)
 * [TypeScript Documentation: Modules](https://www.typescriptlang.org/docs/handbook/modules.html)
 * [CJS vs ESM: Which Module System to Use](https://blog.logrocket.com/cjs-vs-esm-which-module-system-to-use/)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
