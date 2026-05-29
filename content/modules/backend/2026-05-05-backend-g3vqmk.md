@@ -22,3 +22,14 @@ Try implementing a simple rate limiter using a dictionary to store the request c
   * Monitor and analyze traffic patterns
   * Adjust rate limits based on user behavior
   * Implement IP blocking for abusive IPs
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how to debug p95 latency spikes in a Node API under burst traffic.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
