@@ -28,3 +28,14 @@ Send this request multiple times and verify that the outcome is the same as send
 * Handling duplicate requests in distributed systems: https://www.allthingsdistributed.com/2020/04/handling-duplicate-requests.html
 * Designing idempotent APIs: https://apihandyman.io/writing/idempotent-apis 
 * UPSERT operations in databases: https://www.postgresql.org/docs/current/sql-insert.html#SQL-INSERT-ON-CONFLICT
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how to debug p95 latency spikes in a Node API under burst traffic.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
