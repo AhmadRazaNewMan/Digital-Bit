@@ -28,3 +28,14 @@ To implement rate limiting using the token bucket algorithm, you can use the fol
 * Comparison of token bucket and leaky bucket algorithms:
   + token bucket algorithm is more flexible, but can lead to overload if not properly configured
   + leaky bucket algorithm is more predictable, but can lead to packet loss if the bucket is too small
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
