@@ -20,3 +20,14 @@ Try to solve the N-Queens problem using backtracking with pruning, where the goa
 *   Combinatorial optimization: study how backtracking with pruning is applied to solve optimization problems, such as the traveling salesman problem
 *   Algorithm design: explore how to design efficient algorithms using backtracking with pruning for various problem domains
 *   Competitive programming: practice solving problems on platforms like LeetCode, HackerRank, or CodeForces to improve your skills in using backtracking with pruning
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
