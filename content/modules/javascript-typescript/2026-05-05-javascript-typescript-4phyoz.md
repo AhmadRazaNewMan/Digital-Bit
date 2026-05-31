@@ -23,3 +23,14 @@ This command enables experimental VM modules, allowing you to run ESM modules di
 * The Node.js documentation on [ESM](https://nodejs.org/api/esm.html) and [CJS](https://nodejs.org/api/modules.html)
 * The ECMAScript specification for [Modules](https://tc39.es/ecma262/#sec-modules)
 * Articles on [ESM interoperability](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_ways_of_loading_modules) and [CJS to ESM migration](https://blog.logrocket.com/migrating-from-commonjs-to-es-modules/)
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
