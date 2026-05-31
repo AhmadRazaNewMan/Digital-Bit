@@ -16,3 +16,14 @@ Try using the `role` attribute to define a landmark region, for example: `<div r
 * The HTML5 specification provides details on the use of HTML5 elements for defining the structure of a web page
 * The Accessibility Developer Guide provides tutorials and examples on how to implement accessible web development techniques, including the use of semantic landmark regions and heading outlines
 * The ARIA (Accessible Rich Internet Applications) specification provides details on how to use the `role` attribute to define landmark regions and other accessible components.
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
