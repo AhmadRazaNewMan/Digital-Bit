@@ -16,3 +16,14 @@ Try setting `contain: layout` on a container element with a complex layout, and 
 * [Layout Thrashing: The Hidden Performance Killer](https://www.sitepoint.com/layout-thrashing-web-performance-killer/)
 * [Optimizing Performance with CSS Containment](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Containment)
 * [Web Performance Optimization Techniques](https://web.dev/fast/)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
