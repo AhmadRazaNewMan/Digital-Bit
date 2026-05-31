@@ -15,3 +15,14 @@ Use the Chrome DevTools to analyze the critical rendering path of a webpage. Ope
 * Learn about the critical rendering path and how to optimize it on [Web Fundamentals](https://web.dev/critical-rendering-path/)
 * Understand how to use Chrome DevTools to analyze the critical rendering path on the [Chrome DevTools website](https://developer.chrome.com/docs/devtools/)
 * Discover techniques for optimizing the critical rendering path, such as code splitting and lazy loading, on [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Performance/Optimizing_content_efficiency)
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
