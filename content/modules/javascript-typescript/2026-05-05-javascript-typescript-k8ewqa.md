@@ -36,3 +36,14 @@ tsc --module es2020 --moduleResolution node index.cjs && node index.cjs
 * ECMAScript Modules: [ECMAScript specification](https://tc39.es/ecma262/#sec-modules)
 * Node.js documentation: [ESM support](https://nodejs.org/api/esm.html)
 * TypeScript documentation: [Module resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
