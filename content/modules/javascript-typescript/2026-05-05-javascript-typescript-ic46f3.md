@@ -38,3 +38,14 @@ if (shape.type === 'square') {
 * The official TypeScript documentation on [discriminated unions](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions)
 * An article on [TypeScript's type narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
 * A tutorial on [using discriminated unions in TypeScript](https://typescript.tv/episodes/discriminated-unions-in-typescript/)
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
