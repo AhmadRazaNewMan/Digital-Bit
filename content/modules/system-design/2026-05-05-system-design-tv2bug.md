@@ -22,3 +22,14 @@ Try running a simple simulation using `apache-kafka` or `rabbitmq` to demonstrat
 * Strategies for load shedding and rate limiting in distributed systems
 * Implementing bulkheading and caching in microservices architecture
 * Best practices for monitoring and responding to backpressure in production environments
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
