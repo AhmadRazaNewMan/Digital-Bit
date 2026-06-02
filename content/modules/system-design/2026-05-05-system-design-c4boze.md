@@ -22,3 +22,14 @@ To illustrate the difference between the two algorithms, consider a simple examp
 * Comparison of Token Bucket and Leaky Bucket algorithms:
   + Token Bucket is more flexible, while Leaky Bucket is more predictable
   + Token Bucket is suitable for systems with variable traffic, while Leaky Bucket is suitable for systems with constant traffic
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
