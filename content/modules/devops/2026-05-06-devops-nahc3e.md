@@ -24,3 +24,14 @@ Assuming `secret.json` contains the new secret value.
 * HashiCorp Vault documentation: https://www.vaultproject.io/docs 
 * PCI-DSS guidelines for secrets management: https://www.pcisecuritystandards.org/document_library 
 * HIPAA guidelines for secrets management: https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html
+
+## Senior interview checkpoint
+
+**Prompt:** Draft a rollback plan for failed blue-green deployment with partial data migrations.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
