@@ -20,3 +20,14 @@ To get started with structured logging, try using a logging framework like Log4j
   * Tracing: tracks request flows and system interactions
 * Best practices for implementing structured logging, metrics, and tracing in your application
 * Tools and technologies for logging (e.g., ELK Stack), metrics (e.g., Prometheus), and tracing (e.g., OpenTelemetry)
+
+## Senior interview checkpoint
+
+**Prompt:** Design CI guardrails to prevent secret leaks and oversized images.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
