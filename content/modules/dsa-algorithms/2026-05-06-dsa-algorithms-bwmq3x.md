@@ -19,3 +19,14 @@ Try implementing the union-find data structure with path compression in your fav
 * Path compression is just one of several optimization techniques that can be used to improve the performance of the union-find data structure, others include union by rank and weighted union.
 * The time complexity of the union-find data structure with path compression is nearly constant time for both the `find` and `union` operations, making it very efficient for large datasets.
 * The union-find data structure has many real-world applications, including network connectivity analysis, image processing, and database query optimization.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
