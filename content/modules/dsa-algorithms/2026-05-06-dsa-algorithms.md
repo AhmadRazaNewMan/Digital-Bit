@@ -22,3 +22,14 @@ Try to implement the meet-in-the-middle approach in your favorite programming la
 * The time complexity of the meet-in-the-middle approach is O(2^(n/2)), which is more efficient than the brute-force approach for small inputs.
 * The approach can be used to solve other problems, such as the knapsack problem and the partition problem.
 * The meet-in-the-middle approach is not suitable for large inputs due to its high memory requirements.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
