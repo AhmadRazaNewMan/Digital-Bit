@@ -20,3 +20,14 @@ To solidify understanding, try implementing a Binary Indexed Tree and a Segment 
 * For practical applications and comparisons:
   + [LeetCode: Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/)
   + [CP-Algorithms: Segment Trees](https://cp-algorithms.com/data_structures/segment_tree.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
