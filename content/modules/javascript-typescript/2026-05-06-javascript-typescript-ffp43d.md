@@ -43,3 +43,14 @@ xmlWrapper.fetchData().then((response) => console.log(response.data));
 * Example use cases for generics in API wrappers: https://www.freecodecamp.org/news/how-to-use-generics-in-typescript/
 * Best practices for using generics in TypeScript: https://www.tutorialspoint.com/typescript/typescript_generics.htm
 * Type inference in TypeScript: https://www.typescriptlang.org/docs/handbook/type-inference.html
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
