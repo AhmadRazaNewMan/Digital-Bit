@@ -16,3 +16,14 @@ Try running the following command to compile a Typescript file using ESM: `tsc -
 * The Node.js documentation on [ESM](https://nodejs.org/api/esm.html)
 * A detailed guide on [ESM and CJS interop](https://blog.logrocket.com/es-modules-in-node-today/) 
 * Understanding the differences between [ESM and CJS](https://medium.com/@nickchips/es-modules-in-node-today-32efd0a49d4)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
