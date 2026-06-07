@@ -17,3 +17,14 @@ To get started with semantic landmark regions and heading outlines, try the foll
 * Accessibility guidelines: https://www.w3.org/WAI/fundamentals/accessibility-intro/
 * Semantic HTML: https://developer.mozilla.org/en-US/docs/Glossary/Semantic_HTML
 * Heading outlines: https://www.w3.org/WAI/tutorials/page-structure/headings/
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
