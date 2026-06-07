@@ -18,3 +18,14 @@ Try using `clamp()` in your CSS to create a responsive heading: `h1 { font-size:
 * CSS-Tricks: [A Complete Guide to CSS Clamp](https://css-tricks.com/complete-guide-to-css-clamp/)
 * Mozilla Developer Network: [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 * Smashing Magazine: [Responsive Typography: Using Clamp To Set Perfectly Scaled Headings](https://www.smashingmagazine.com/2020/05/responsive-typography-clamp/)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
