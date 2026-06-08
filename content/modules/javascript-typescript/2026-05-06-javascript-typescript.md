@@ -15,3 +15,14 @@ To test ESM interop, create a new project with a `package.json` file containing 
 * [Node.js documentation on ESM](https://nodejs.org/api/esm.html)
 * [TypeScript documentation on module resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
 * [ECMAScript Modules in Node.js](https://nodejs.org/api/modules.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
