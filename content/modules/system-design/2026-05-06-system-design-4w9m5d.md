@@ -24,3 +24,14 @@ To get a better understanding of how these algorithms work, try implementing a s
 * Implementing rate limiting in practice: 
   * Using libraries and frameworks: examples and tutorials
   * Best practices: tuning parameters, handling edge cases
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
