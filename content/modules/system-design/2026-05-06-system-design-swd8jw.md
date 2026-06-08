@@ -17,3 +17,14 @@ Try designing a payment system that uses idempotency keys to prevent duplicate t
 * Study how to implement idempotency in distributed systems and microservices architecture
 * Read about the trade-offs between idempotency and performance in high-traffic systems
 * Discover how idempotency keys can be used in other domains beyond payments, such as messaging and workflow management
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
