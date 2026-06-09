@@ -17,3 +17,14 @@ To get started with JWT sessions, try running the following command to install t
 * [Using Opaque Tokens with OAuth 2.0](https://oauth.net/2/oauth-token/)
 * [Session Management with JWT and Spring Boot](https://www.baeldung.com/spring-security-jwt)
 * [Security Considerations for JWT Sessions](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Beginners.html)
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
