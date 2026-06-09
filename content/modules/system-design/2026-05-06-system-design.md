@@ -17,3 +17,14 @@ Try implementing a simple cache system with probabilistic early expiration using
 * Explore different techniques for implementing probabilistic early expiration, such as jittered expiration and exponential backoff
 * Read about real-world examples of cache stampedes and how they were mitigated using probabilistic early expiration
 * Study the trade-offs between cache hit ratio, latency, and system throughput when using probabilistic early expiration
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
