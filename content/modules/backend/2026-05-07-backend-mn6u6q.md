@@ -17,3 +17,14 @@ Try implementing a simple rate limiter using the token bucket algorithm, where e
 * Leaky bucket algorithm for rate limiting
 * Implementing rate limiting using caching mechanisms like Redis or Memcached
 * Best practices for rate limiting to prevent abuse and ensure fair usage of resources
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
