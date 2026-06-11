@@ -19,3 +19,14 @@ In this example, the liveness probe checks if the web server is responding corre
 * Kubernetes documentation on [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 * Kubernetes documentation on [container probes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#probe-v1-core)
 * Example of using [liveness and readiness probes in a deployment](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
+
+## Senior interview checkpoint
+
+**Prompt:** Design CI guardrails to prevent secret leaks and oversized images.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
