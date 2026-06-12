@@ -16,3 +16,14 @@ Implement a function that takes a sorted array as input and returns a new array 
 * It's also useful in string algorithms, such as checking if two strings are anagrams of each other.
 * For more complex scenarios, like dealing with rotated sorted arrays, the two pointers technique can be adapted to handle the rotation.
 * LeetCode and similar platforms offer numerous problems that can be solved using the two pointers technique, providing ample practice opportunities.
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
