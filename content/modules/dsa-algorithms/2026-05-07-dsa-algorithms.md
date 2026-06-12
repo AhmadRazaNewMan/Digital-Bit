@@ -26,3 +26,14 @@ Try to solve the "Capacity To Ship Packages Within D Days" problem on LeetCode, 
 * Practice problems:
   + LeetCode: "Capacity To Ship Packages Within D Days"
   + LeetCode: "Koko Eating Bananas"
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
