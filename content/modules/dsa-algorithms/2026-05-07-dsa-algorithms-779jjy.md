@@ -23,3 +23,14 @@ Find the strongly connected components in a graph with the following edges: (A, 
   + Network analysis: clustering, community detection, and network robustness
   + Web search: improving search engine rankings and identifying spam websites
   + Social network analysis: information diffusion, influence maximization, and community detection
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
