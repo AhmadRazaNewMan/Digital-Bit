@@ -25,3 +25,14 @@ controller.abort();
 * [MDN Documentation: AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 * [MDN Documentation: AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
 * [MDN Documentation: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
