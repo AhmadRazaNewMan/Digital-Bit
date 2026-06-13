@@ -21,3 +21,14 @@ Try using the `tabindex` attribute to manage focus in a form. Set `tabindex="0"`
 * The ARIA specification provides information on how to use ARIA attributes to improve accessibility
 * The W3C tutorial on accessible forms provides step-by-step instructions and examples for creating accessible forms
 * The MDN Web Docs provide detailed information on HTML form elements and how to use them to create accessible forms
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
