@@ -22,3 +22,14 @@ Try running the command `lighthouse https://example.com` in your terminal to ana
 * https://web.dev/optimize-css
 * https://web.dev/code-splitting 
 * Books on web performance optimization
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
