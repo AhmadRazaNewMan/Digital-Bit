@@ -15,3 +15,14 @@ Try applying the `contain: layout` property to a container element in your HTML,
 * The CSS Containment specification: https://www.w3.org/TR/css-contain-1/
 * MDN documentation on CSS Containment: https://developer.mozilla.org/en-US/docs/Web/CSS/contain
 * Techniques for avoiding layout thrashing: https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path/Optimizing_JavaScript#avoid_layout_thrashing
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
