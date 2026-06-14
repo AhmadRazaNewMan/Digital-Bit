@@ -28,3 +28,14 @@ function handleState(state: State) {
 * The TypeScript documentation on [discriminated unions](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions) provides a comprehensive overview.
 * The concept of [type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards) is closely related and useful for more complex scenarios.
 * Looking into [pattern matching](https://github.com/microsoft/TypeScript/issues/16928) proposals and discussions can offer insight into future directions for TypeScript's type system.
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
