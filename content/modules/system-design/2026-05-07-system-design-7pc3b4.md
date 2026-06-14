@@ -21,3 +21,14 @@ Try implementing a simple cache system with probabilistic early expiration using
   + Using a cache hierarchical structure to reduce the load on the underlying system
 * Explore the trade-offs between cache expiration time, random factor, and system performance
 * Read about real-world examples of cache stampede and how they were mitigated in production systems
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
