@@ -16,3 +16,14 @@ To implement rate limiting using the token bucket algorithm, you can use the fol
 * The leaky bucket algorithm is described in [RFC 2697](https://tools.ietf.org/html/rfc2697)
 * A comparison of the token bucket and leaky bucket algorithms can be found in [this article](https://medium.com/@saisiddhardha/token-bucket-vs-leaky-bucket-algorithms-5e2cfd8a4c9a) 
 * Implementing rate limiting using Redis can be found in [the Redis documentation](https://redis.io/commands/incr)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
