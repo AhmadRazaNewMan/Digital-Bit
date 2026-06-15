@@ -31,3 +31,14 @@ Try designing a simple e-commerce application using CQRS. Define the commands (e
   + Axon Framework
   + NServiceBus
   + Event Store
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
