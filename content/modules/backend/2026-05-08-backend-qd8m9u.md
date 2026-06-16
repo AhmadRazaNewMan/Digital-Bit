@@ -20,3 +20,14 @@ To explore the outbox pattern further, consider designing a simple outbox system
 * [Background Jobs](https://www.fullstackpython.com/background-jobs.html) on Full Stack Python
 * [Reliable Messaging with the Outbox Pattern](https://www.youtube.com/watch?v=XZwbWh1V5KI) on YouTube
 * [Distributed Transactional Data Processing](https://martinfowler.com/articles/patterns-implicit-transactional-integrity.html) by Martin Fowler
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
