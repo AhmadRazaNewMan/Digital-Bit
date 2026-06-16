@@ -35,3 +35,14 @@ In this example, T2 reads the updated balance, but it is rolled back by T1.
 * Locking mechanisms to prevent transaction isolation anomalies
 * Comparison of different isolation levels and their implications on performance and consistency
 * Real-world examples of transaction isolation anomalies and how to avoid them
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how isolation level affects deadlocks in write-heavy workloads.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
