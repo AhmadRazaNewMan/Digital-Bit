@@ -20,3 +20,14 @@ To practice implementing a rolling deploy, consider using Kubernetes, where you 
 * **Kubernetes Documentation**: Refer to Kubernetes documentation for rolling updates to understand how to implement rolling deploys in a Kubernetes environment.
 * **Failure Budget Articles**: Look for articles and case studies on how different companies calculate and manage their failure budgets to gain practical insights.
 * **Service Level Objectives (SLOs)**: Study how to set effective SLOs, as they are crucial for determining the acceptable failure budget for your system.
+
+## Senior interview checkpoint
+
+**Prompt:** Draft a rollback plan for failed blue-green deployment with partial data migrations.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
