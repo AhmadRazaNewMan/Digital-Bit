@@ -15,3 +15,14 @@ Implement a MedianFinder class that supports adding a number to the stream and f
 * Learn about the time and space complexity of heap operations and how they apply to the median stream and k-way merge problems.
 * Explore other applications of heaps, such as heap sort, priority queuing, and graph algorithms like Prim's and Kruskal's for finding minimum spanning trees.
 * Study the implementation details of min-heaps and max-heaps in programming languages and libraries, focusing on how they handle edge cases and balancing.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
