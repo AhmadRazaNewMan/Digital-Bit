@@ -24,3 +24,14 @@ Given a positive integer `n`, find the minimum number `x` such that `x` is great
   * Linear search
   * Exponential search
   * Ternary search
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
