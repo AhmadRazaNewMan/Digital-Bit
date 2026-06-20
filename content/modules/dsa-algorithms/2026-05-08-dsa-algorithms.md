@@ -16,3 +16,14 @@ Try to find the LCS between the sequences "ABCBDAB" and "BDCABA" by filling up t
 * Practice solving LCS and LIS problems on platforms like LeetCode or GeeksforGeeks
 * Explore other dynamic programming problems that involve finding the longest or shortest subsequence, such as the Shortest Common Supersequence problem
 * Read about the time and space complexity of LCS and LIS algorithms and how they can be optimized for large inputs
+
+## Senior interview checkpoint
+
+**Prompt:** Design an approach for top-K frequent items in a streaming system with memory limits.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
