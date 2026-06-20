@@ -25,3 +25,14 @@ Try adding the `aria-required` attribute to a form field and verify that screen 
 * [WCAG 2.1 guidelines for form accessibility](https://www.w3.org/TR/WCAG21/#forms)
 * [ARIA attributes for accessible forms](https://www.w3.org/TR/wai-aria/')
 * [WebAIM resources for accessible forms](https://webaim.org/techniques/forms/)
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
