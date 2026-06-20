@@ -18,3 +18,14 @@ Try setting a responsive font size for a heading element using `clamp()`: `h1 { 
 * CSS-Tricks: [A Complete Guide to CSS Clamp](https://css-tricks.com/a-complete-guide-to-css-clamp/)
 * MDN Web Docs: [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 * Smashing Magazine: [Responsive Typography: Using Clamp For Better Font Sizing](https://www.smashingmagazine.com/2020/07/responsive-typography-clamp-font-sizing/)
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
