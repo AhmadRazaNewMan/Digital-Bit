@@ -25,3 +25,14 @@ Use the Chrome DevTools to analyze the critical rendering path of a webpage:
 * [Google Web Fundamentals: Critical Rendering Path](https://web.dev/critical-rendering-path/)
 * [MDN Web Docs: Critical rendering path](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
 * [Web Performance Optimization Techniques](https://www.w3.org/TR/2017/NOTE-wpo-2017-0306/)
+
+## Senior interview checkpoint
+
+**Prompt:** Audit a page for accessibility regressions after a redesign; list highest-risk fixes first.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
