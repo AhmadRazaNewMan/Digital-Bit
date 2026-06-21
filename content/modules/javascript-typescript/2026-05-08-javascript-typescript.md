@@ -28,3 +28,14 @@ In this example, even though `circle` and `ellipse` have different type names, t
 * TypeScript documentation on [type compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html)
 * Article on [nominal typing in TypeScript](https://spin.atomicobject.com/2022/01/19/nominal-typing-typescript/)
 * GitHub discussion on [structural vs nominal typing](https://github.com/microsoft/TypeScript/issues/202)
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
