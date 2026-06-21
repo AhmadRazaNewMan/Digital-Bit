@@ -30,3 +30,14 @@ function area(shape: Shape) {
 * The official TypeScript documentation provides detailed information on [discriminated unions](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions) and how they can be used to create more robust and type-safe code.
 * [Type Guard Functions](https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards) can further enhance the use of discriminated unions by allowing custom logic to narrow types.
 * Articles and tutorials on [TypeScriptlang.org](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html) and other developer blogs often include examples and best practices for using discriminated unions effectively in real-world applications.
+
+## Senior interview checkpoint
+
+**Prompt:** Refactor an API client to discriminated unions; show how this prevents runtime bugs.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
