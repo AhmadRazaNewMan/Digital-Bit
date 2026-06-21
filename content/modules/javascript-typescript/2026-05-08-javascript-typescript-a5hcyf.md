@@ -20,3 +20,14 @@ This will create a new `package.json` file with the `"type": "module"` field set
 * [Types of JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#types_of_javascript_modules)
 * [Using ES modules in Node.js](https://www.sitepoint.com/using-es-modules-in-node-today/)
 * [CJS to ESM migration guide](https://auth0.com/blog/migrating-from-commonjs-to-es-modules/)
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
