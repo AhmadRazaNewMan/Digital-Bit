@@ -16,3 +16,14 @@ To implement a simple Token Bucket algorithm, you can use the following command:
 * The Leaky Bucket algorithm is described in detail in [RFC 2698](https://tools.ietf.org/html/rfc2698)
 * A comparison of the two algorithms can be found in [this paper](https://www.researchgate.net/publication/220899599_A_Comparison_of_Leaky_Bucket_and_Token_Bucket_Algorithms_for_Traffic_Shaping)
 * Implementations of the algorithms can be found in [this GitHub repository](https://github.com/rg3/rate-limiting)
+
+## Senior interview checkpoint
+
+**Prompt:** Explain cache invalidation strategy for hot keys with high write rates.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
