@@ -23,3 +23,14 @@ To demonstrate the difference between streaming and buffering, try uploading a l
 * Relevant libraries and frameworks:
   + Node.js: `express`, `multer`, `stream`
   + Python: `Flask`, `requests`, `tempfile`
+
+## Senior interview checkpoint
+
+**Prompt:** Design idempotent retry handling for a payment callback endpoint.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
