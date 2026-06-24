@@ -20,3 +20,14 @@ Generate all possible subsets of the set {1, 2, 3} using bit manipulation, and c
 * Calculating the XOR of all elements in a path using bit manipulation
 * Applications of bit manipulation in computer science and programming
 * Tips and tricks for using bit manipulation to solve problems involving subsets and XOR paths
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
