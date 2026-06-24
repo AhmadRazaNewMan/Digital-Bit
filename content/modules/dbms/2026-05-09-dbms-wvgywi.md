@@ -21,3 +21,14 @@ This command will show the execution plan for the query, indicating whether a se
 * Explore query optimization techniques, such as rewriting queries to use indexes effectively
 * Study the EXPLAIN command and its output to analyze query execution plans
 * Investigate the trade-offs between query performance and index maintenance overhead
+
+## Senior interview checkpoint
+
+**Prompt:** Explain how isolation level affects deadlocks in write-heavy workloads.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
