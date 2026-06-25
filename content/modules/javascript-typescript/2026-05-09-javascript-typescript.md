@@ -28,3 +28,14 @@ if (shape.type === 'square') {
 * Type guards and how they can be used for narrowing
 * Using switch statements for type narrowing in TypeScript
 * Advanced types and type manipulation in TypeScript for more complex scenarios
+
+## Senior interview checkpoint
+
+**Prompt:** Design cancellation-safe async flow with AbortController for chained requests.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
