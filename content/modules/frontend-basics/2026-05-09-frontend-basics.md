@@ -20,3 +20,14 @@ Use the `performance` tab in Chrome DevTools to analyze the critical rendering p
 * Discover how to [improve the performance](https://web.dev/fast/) of your web pages
 * Read about [web performance optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency) best practices
 * Explore the [browser's DevTools](https://developer.chrome.com/docs/devtools/) and learn how to use them to analyze and optimize your web pages
+
+## Senior interview checkpoint
+
+**Prompt:** Explain hydration mismatch root causes and debugging strategy in SSR apps.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
