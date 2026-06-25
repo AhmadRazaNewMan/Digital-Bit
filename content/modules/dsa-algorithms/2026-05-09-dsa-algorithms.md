@@ -21,3 +21,14 @@ Implement a function `count_inversions(arr)` that takes an array as input and re
 * **Merge Sort Basics**: Review how merge sort works to better understand how inversions can be counted during the merge process.
 * **Inversion Counting Applications**: Look into applications of inversion counting in data analysis and algorithm design.
 * **Implementation Variations**: Explore different programming languages' implementations of inversion counting with merge sort to see how the approach can be adapted.
+
+## Senior interview checkpoint
+
+**Prompt:** Compare monotonic queue vs heap for sliding-window max under high-throughput constraints.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
