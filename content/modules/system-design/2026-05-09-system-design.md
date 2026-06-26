@@ -17,3 +17,14 @@ To implement a simple token bucket algorithm, you can use the following command:
 * Both algorithms can be used together to provide a more flexible and efficient rate limiting system
 * Rate limiting can be used in a variety of systems, including web servers, databases, and networks
 * The choice of algorithm depends on the specific requirements of the system and the type of traffic it needs to handle
+
+## Senior interview checkpoint
+
+**Prompt:** Design a rate limiter that supports both global and per-user quotas.
+
+**What a senior answer should include**
+
+- Constraints first (traffic, latency, reliability, ownership boundaries).
+- Tradeoffs with at least two viable alternatives.
+- Failure modes, observability signals, and rollback plan.
+- A measurable success criterion after rollout.
