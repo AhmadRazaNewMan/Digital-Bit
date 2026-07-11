@@ -12,7 +12,7 @@ export const MODULE_CATALOG: ModuleMeta[] = [
     id: "dsa-algorithms",
     label: "DSA & algorithms",
     tagline: "Problem-solving drills and performance tradeoffs",
-    hue: 210,
+    hue: 149,
   },
   {
     id: "frontend-basics",
