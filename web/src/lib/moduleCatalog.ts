@@ -36,7 +36,7 @@ export const MODULE_CATALOG: ModuleMeta[] = [
     id: "system-design",
     label: "System design",
     tagline: "Scale, tradeoffs, and architecture judgement",
-    hue: 247,
+    hue: 186,
   },
   {
     id: "devops",
