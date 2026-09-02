@@ -30,7 +30,7 @@ export const MODULE_CATALOG: ModuleMeta[] = [
     id: "backend",
     label: "Backend",
     tagline: "APIs, auth, reliability, and service boundaries",
-    hue: 218,
+    hue: 157,
   },
   {
     id: "system-design",
