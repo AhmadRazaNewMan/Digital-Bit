@@ -17,8 +17,8 @@ export const MODULE_CATALOG: ModuleMeta[] = [
   {
     id: "frontend-basics",
     label: "Frontend foundations",
-    tagline: "Readable interfaces with resilient UX",
-    hue: 227,
+    tagline: "UI structure, accessibility, and rendering speed",
+    hue: 166,
   },
   {
     id: "javascript-typescript",
