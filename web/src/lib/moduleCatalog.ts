@@ -41,8 +41,8 @@ export const MODULE_CATALOG: ModuleMeta[] = [
   {
     id: "devops",
     label: "DevOps",
-    tagline: "Build, release, observe, and recover confidently",
-    hue: 70,
+    tagline: "CI/CD discipline and operational excellence",
+    hue: 329,
   },
   {
     id: "dbms",
