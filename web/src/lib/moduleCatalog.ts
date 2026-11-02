@@ -24,7 +24,7 @@ export const MODULE_CATALOG: ModuleMeta[] = [
     id: "javascript-typescript",
     label: "JavaScript & TypeScript",
     tagline: "Type-safe apps, async control, cleaner abstractions",
-    hue: 290,
+    hue: 229,
   },
   {
     id: "backend",
